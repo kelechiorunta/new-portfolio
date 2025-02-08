@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Jersey+15&family=Jost:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --left: 0%;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   padding: 0;
@@ -8,12 +12,14 @@
 
 body {
   width: 100%;
-  min-height: 100vh;
-  max-width: 1728px;
-  max-height: 1117px;
+  height: 100%;
+  min-height: 1000vh;
+  max-width: 120vw;
+  max-height: 119.2361111111vw;
   background-color: #292F36;
   display: flex;
   flex-direction: column;
+  overflow: scroll;
 }
 
 header {
@@ -65,6 +71,7 @@ header .toggle-container {
   background-color: #D9D9D9;
   border-radius: 20px;
   display: inline-block;
+  cursor: pointer;
 }
 header .toggle-container .toggle {
   border-radius: 50%;
@@ -75,8 +82,8 @@ header .toggle-container .toggle {
   margin-left: 0;
   transition: margin-left 1s ease;
 }
-header .toggle-container .toggle:hover {
-  margin-left: 90%;
+header .toggle-container .toggle.active {
+  margin-left: calc(100% - 38px);
 }
 
 .home-section {
@@ -99,6 +106,45 @@ header .toggle-container .toggle:hover {
 .home-section .title {
   margin-top: 22.5714285714vw;
   font-size: 4.4444444444vw;
+  width: 100vw;
+}
+.home-section .title span.animate {
+  animation: changeColor 2s ease-in-out 2s;
+}
+.home-section .title h1.animate {
+  animation: changeColor 2s ease-in-out 2s;
+}
+@keyframes changeColor {
+  0% {
+    color: white;
+    opacity: 1;
+    text-shadow: 2px 2px 2px white;
+  }
+  25% {
+    color: orange;
+    opacity: 0.75;
+    text-shadow: 4px 4px 4px white;
+  }
+  50% {
+    color: yellow;
+    opacity: 0.5;
+    text-shadow: 2px 2px 2px white;
+  }
+  75% {
+    color: yellowgreen;
+    opacity: 0.25;
+    text-shadow: 4px 4px 4px white;
+  }
+  95% {
+    color: yellowgreen;
+    opacity: 0;
+    text-shadow: 4px 4px 4px white;
+  }
+  100% {
+    color: green;
+    opacity: 1;
+    text-shadow: 4px 4px 4px white;
+  }
 }
 .home-section .cont {
   display: flex;
@@ -125,7 +171,7 @@ header .toggle-container .toggle:hover {
   cursor: pointer;
 }
 .home-section .floating-nav {
-  position: absolute;
+  position: fixed;
   height: 17.3611111111vw;
   width: 3.6458333333vw;
   top: 13.5416666667vw;
@@ -136,14 +182,28 @@ header .toggle-container .toggle:hover {
   flex-direction: column;
   justify-content: space-around;
   gap: 10px;
+  opacity: 0;
+  transition: opacity 10s ease-in-out;
+  animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(20px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(20px);
+  }
 }
 .home-section .floating-nav a {
   text-decoration: none;
   color: white;
   background-color: #292F36;
-  border-radius: 50px;
-  height: 50px;
-  width: 50px;
+  border-radius: 3.4722222222vw;
+  width: 3.4722222222vw;
+  height: 3.4722222222vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -151,4 +211,119 @@ header .toggle-container .toggle:hover {
 .home-section .floating-nav a i.material-icons {
   font-size: 24px;
   color: #fff;
+}
+
+.avatar {
+  position: sticky;
+  background-color: white;
+  left: 42.5vw;
+  transform: translateY(-100vw);
+  width: 17.5vw;
+  height: 17.2916666667vw;
+  border: 1px solid white;
+  margin-top: 20px;
+  z-index: 20;
+  border-radius: 50%;
+  opacity: 0;
+  overflow: hidden;
+  transition: transform 2s ease-in-out, opacity 4s ease-in-out;
+}
+.avatar .blur-load img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.avatar .blur-load.loaded > img {
+  opacity: 1;
+}
+.avatar .blur-load > img {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+.avatar .blur-load {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+}
+@keyframes slideInFromRight {
+  from {
+    left: var(--left); /* Start from the right */
+  }
+  to {
+    left: 0%; /* Move to center */
+  }
+}
+@keyframes slideOutToLeft {
+  from {
+    left: 0%; /* Start from center */
+  }
+  to {
+    left: calc(-1 * var(--left)); /* Slide out to the left */
+  }
+}
+@keyframes slideInFromLeft {
+  from {
+    left: calc(1 * var(--left)); /* Start from the left */
+  }
+  to {
+    left: 0%; /* Move to center */
+  }
+}
+@keyframes slideOutToRight {
+  from {
+    left: 0%; /* Start from center */
+  }
+  to {
+    left: calc(-1 * var(--left)); /* Slide out to the right */
+  }
+}
+.avatar .curved-section {
+  position: absolute;
+  width: 100%;
+  background-attachment: fixed;
+  -webkit-clip-path: url(#visual);
+          clip-path: url(#visual); /* Apply the wave shape here */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  border-radius: 50%;
+}
+.avatar .curved-section[data-direction=next] .blur-load.active {
+  animation: slideInFromRight 4s ease;
+}
+.avatar .curved-section[data-direction=prev] .blur-load.active {
+  animation: slideInFromLeft 4s forwards;
+}
+.avatar .curved-section[data-direction=next] .blur-load.exit {
+  animation: slideOutToLeft 4s forwards;
+}
+.avatar .curved-section[data-direction=prev] .blur-load.exit {
+  animation: slideOutToRight 3s forwards;
+}
+.avatar .curved-section .blur-load {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  position: absolute;
+  top: 0;
+  left: var(--left);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-section {
+  height: 100vh;
+  background-color: color;
 }/*# sourceMappingURL=style.css.map */

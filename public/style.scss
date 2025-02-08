@@ -12,7 +12,7 @@
     $root-forecolor: white;
 
 :root{
-    
+    --left: 0%;
 }
 
 *, *::before, *::after{
@@ -24,14 +24,15 @@
 
 body{
     width: 100%;
-    min-height: 100vh;
-    max-width: 1728px;
-    max-height: 1117px;
+    height: 100%;
+    min-height: 1000vh;
+    max-width: calc((1728/1440) * 100vw);
+    max-height: calc((1717/1440) * 100vw);;
     background-color: $back-color;
     display: flex;
     flex-direction: column;
     // display: block;
-    // overflow: hidden;
+    overflow: scroll;
 }
 
 // Header styling
@@ -89,6 +90,7 @@ header{
             background-color: #D9D9D9;
             border-radius: 20px;
             display: inline-block;
+            cursor: pointer;
             .toggle{
                 border-radius: 50%;
                 width: 38px;
@@ -97,9 +99,12 @@ header{
                 display: inline-block;
                 margin-left: 0;
                 transition: margin-left 1s ease;
-                &:hover{
-                    margin-left: 90%;
-                }
+                // &:active{
+                //     margin-left: calc(100% - 38px);
+                // }
+            }
+            .toggle.active{
+                margin-left: calc(100% - 38px);
             }
         }
     }
@@ -127,8 +132,48 @@ header{
         .title{
             margin-top: calc((316/1400) * 100vw);
             font-size: calc((64/1440) * 100vw); //64px
-                
+            width: 100vw; 
+
+            span.animate{
+                animation: changeColor 2s ease-in-out 2s;
+            }
+            h1.animate{
+                animation: changeColor 2s ease-in-out 2s;
+            } 
+            @keyframes changeColor {
+                0%{
+                    color: white;
+                    opacity:1;
+                    text-shadow: 2px 2px 2px white;
+                }
+                25%{
+                    color: orange;
+                    opacity:0.75;
+                    text-shadow: 4px 4px 4px white;
+                }
+                50%{
+                    color: yellow;
+                    opacity: 0.5;
+                    text-shadow: 2px 2px 2px white;
+                }
+                 75%{
+                    color: yellowgreen;
+                    opacity: 0.25;
+                    text-shadow: 4px 4px 4px white;
+                 } 
+                 95%{
+                    color: yellowgreen;
+                    opacity: 0;
+                    text-shadow: 4px 4px 4px white;
+                 }
+                 100%{
+                    color: green;
+                    opacity: 1;
+                    text-shadow: 4px 4px 4px white;
+                 }
+            }
         }
+       
         .cont{
             display: flex;
             margin-top: calc((20/1400) * 100vh);
@@ -157,7 +202,7 @@ header{
         }
 
         .floating-nav{
-            position: absolute;
+            position: fixed;
             height: calc((250/1440) * 100vw);
             width: calc((52.5/1440) * 100vw);
             top: calc((195/1440) * 100vw);
@@ -168,15 +213,34 @@ header{
             flex-direction: column;
             justify-content: space-around;
             gap:10px;
+            opacity: 0;
+            transition: opacity 10s ease-in-out;
+            animation: bounce 2s ease-in-out infinite;
+            // margin-left:-50px;
+          
+          
+          @keyframes bounce {
+            0%{
+                transform: translateY(20px);
+            }
+            50%{
+                transform: translateY(0);
+            }
+            100%{
+                transform: translateY(20px);
+            }
+          }
+        
 
             a{
                 text-decoration: none;
                 color: white;
                 background-color: $back-color;
-                border-radius: 50px;
+                border-radius: calc((50/1440) * 100vw);;
                 // border: 1px solid white;
-                height: 50px;
-                width: 50px;
+                width: calc((50/1440) * 100vw);
+                height: calc((50/1440) * 100vw);
+                // width: 50px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -188,4 +252,146 @@ header{
             }
         }
         
+    }
+
+    .avatar{
+        // transform: translateY(-100%);
+        position: sticky;
+        background-color: white;
+        left: calc(((738/1440) * 100vw) - calc((126/1440) * 100vw));
+        transform: translateY(-100vw);
+        // top: calc(((590/1440) * 100vw) - calc((0/1440) * 100vw));
+        width: calc((252/1440) * 100vw);
+        height: calc((249/1440) * 100vw);
+        border: 1px solid white;
+        margin-top: 20px;
+        z-index: 20;
+        border-radius: 50%;
+        opacity: 0;
+        overflow: hidden;
+        transition: transform 2s ease-in-out, opacity 4s ease-in-out;
+
+        .blur-load img{
+            width:100%;
+            aspect-ratio: 1/1;
+            // display: block;
+            object-position: center;
+            object-fit: cover;
+          }
+        
+          .blur-load.loaded > img {
+            opacity: 1
+          }
+        
+          .blur-load > img {
+            // position: absolute;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+          }
+        
+          .blur-load {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+            
+            //position: absolute;
+        
+          }
+
+          @keyframes slideInFromRight {
+            from {
+              left: var(--left); /* Start from the right */
+            }
+            to {
+              left: 0%; /* Move to center */
+            }
+          }
+        
+          // Keyframes for slide-out to the left
+          @keyframes slideOutToLeft {
+            from {
+              left: 0%; /* Start from center */
+            }
+            to {
+              left: calc(-1 * var(--left)); /* Slide out to the left */
+            }
+          }
+          
+          // Keyframes for slide-in from the left
+          @keyframes slideInFromLeft {
+            from {
+              left: calc(1 * var(--left)); /* Start from the left */
+            }
+            to {
+              left: 0%; /* Move to center */
+            }
+          }
+          
+          // Keyframes for slide-out to the right
+          @keyframes slideOutToRight {
+            from {
+              left: 0%; /* Start from center */
+            }
+            to {
+              left: calc(-1 * var(--left)); /* Slide out to the right */
+            }
+        }
+        .curved-section {
+            position: absolute;
+            width: 100%;
+            // height: 95vh;
+            
+            // background-color: #fbbf24;
+            background-attachment: fixed;
+            // background-image: url('./imgs/lendsqr.png');
+            clip-path: url(#visual); /* Apply the wave shape here */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: -1;
+            border-radius: 50%;
+        
+            &[data-direction='next'] .blur-load.active{
+                animation: slideInFromRight 4s ease;
+            }
+            &[data-direction='prev'] .blur-load.active {
+                animation: slideInFromLeft 4s forwards;
+            }
+            
+            &[data-direction='next'] .blur-load.exit {
+                animation: slideOutToLeft 4s forwards;
+            }
+            
+            &[data-direction='prev'] .blur-load.exit {
+                animation: slideOutToRight 3s forwards;
+            }
+          }
+          
+          
+          .curved-section .blur-load {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: center;
+            // border-radius: 50%;
+             position: absolute;
+            top: 0;
+            left: var(--left);
+            // display: block;
+            display: flex;
+            flex-direction: column;
+            // justify-content: flex-end;
+            align-items: center;
+            // flex:100%;
+          }
+        
+    }
+
+    .about-section{
+        height: 100vh;
+        background-color: color;
     }
