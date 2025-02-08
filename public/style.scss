@@ -10,6 +10,10 @@
     $fore-color: #2EA787; //For Forecolor
     $back-color: #292F36; //For backgroundcolor
     $root-forecolor: white;
+    $html-color: #E54F26;
+    $css-color: #0C73B8;
+    $js-node-color: #E7A020;
+    $react-color: #28A9E0;
 
 :root{
     --left: 0%;
@@ -32,7 +36,8 @@ body{
     display: flex;
     flex-direction: column;
     // display: block;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 // Header styling
@@ -214,6 +219,7 @@ header{
             justify-content: space-around;
             gap:10px;
             opacity: 0;
+            z-index: 20;
             transition: opacity 10s ease-in-out;
             animation: bounce 2s ease-in-out infinite;
             // margin-left:-50px;
@@ -260,11 +266,12 @@ header{
         background-color: white;
         left: calc(((738/1440) * 100vw) - calc((126/1440) * 100vw));
         transform: translateY(-100vw);
+        top:-50%;
         // top: calc(((590/1440) * 100vw) - calc((0/1440) * 100vw));
         width: calc((252/1440) * 100vw);
         height: calc((249/1440) * 100vw);
         border: 1px solid white;
-        margin-top: 20px;
+        // margin-top: 20px;
         z-index: 20;
         border-radius: 50%;
         opacity: 0;
@@ -391,7 +398,108 @@ header{
         
     }
 
-    .about-section{
+    .whitespace-section{
+        margin-top: calc((206/1440) * 100vw);
         height: 100vh;
-        background-color: color;
+        background-color: black;//$fore-color;
+    }
+
+    .skills-section{
+        height: 100vh;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-image: url('./imgs/matrix.png');
+    
+    .title{
+        font-size: calc((40/1440) * 100vw);
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        margin: calc((20/1440) * 100vw) auto;
+        width: 100%;
+    }
+    .quote{
+        font-size: calc((24/1440) * 100vw);
+        color: white;
+        text-align: center;
+        margin: calc((24/1440) * 100vw) auto;
+        width: 100%;
+    }
+    .card-skill-title{
+        padding: calc((24/1440) * 100vw) calc((16/1440) * 100vw);
+        height: calc((104/1440) * 100vw);
+        width: calc((288/1440) * 100vw);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: calc((8/1440) * 100vw);;
+        align-items: center;
+        justify-content: space-evenly;
+        border-radius: calc((20/1440) * 100vw);
+        background-color: $fore-color;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        .img{
+            display: inline-block;
+            width: 100%;
+        }
+        .web-development{
+            width: 100%;
+            text-align: center;
+            display: inline-block;
+            // color: white;
+        }
+    }
+
+    .tech-stacks-container{
+        margin-top: calc((40/1440) * 100vw);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .html-card h1{
+        color: $html-color;
+    }
+    .css-card h1{
+        color: $css-color;
+    }
+    .js-node-card h1{
+        color: $js-node-color;
+    }
+    .react-card h1{
+        color: $react-color;
+    }
+
+    .html-container{
+        background-color: $html-color;
+    }
+    .css-container{
+        background-color: $css-color;
+    }
+    .js-node-container{
+        background-color: $js-node-color;
+    }
+    .react-container{
+        background-color: $react-color;
+    }
+
+    .tech-card{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: calc((24/1440) * 100vw);
+        .tech-title{
+            color: white;
+            
+        }
+        .icon-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: calc((40/1440) * 100vw);
+            border-radius: 50%;
+        }
+    }
     }
