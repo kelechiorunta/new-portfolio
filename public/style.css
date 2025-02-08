@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Jersey+15&family=Jost:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Cinzel", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  max-width: 1728px;
+  max-height: 1117px;
+  background-color: #292F36;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 10px;
+  margin: auto;
+  width: 100%;
+  max-width: calc(100% - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: fixed;
+  top: 0;
+  left: 4.1666666667vw;
+  z-index: 10;
+}
+header .logo {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  justify-content: space-evenly;
+  text-decoration: none;
+}
+header .logo img {
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+}
+header .logo h1 {
+  color: white;
+  font-size: 1.67vw;
+}
+header .primary-nav {
+  display: flex;
+  gap: 3.5416666667vw;
+  align-items: center;
+  text-transform: capitalize;
+}
+header .primary-nav a {
+  text-decoration: none;
+  color: white;
+  transition: color 1s ease-in-out;
+}
+header .primary-nav a:hover {
+  color: #2EA787;
+}
+header .toggle-container {
+  width: 74px;
+  height: 38px;
+  background-color: #D9D9D9;
+  border-radius: 20px;
+  display: inline-block;
+}
+header .toggle-container .toggle {
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  background-color: #2EA787;
+  display: inline-block;
+  margin-left: 0;
+  transition: margin-left 1s ease;
+}
+header .toggle-container .toggle:hover {
+  margin-left: 90%;
+}
+
+.home-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-attachment: fixed;
+  background-image: url("./imgs/developer.png");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 46.7361111111vw;
+}
+.home-section .title, .home-section .description {
+  margin-left: 21.7857142857vw;
+  color: white;
+  width: 44vw;
+  z-index: 10;
+}
+.home-section .title {
+  margin-top: 22.5714285714vw;
+  font-size: 4.4444444444vw;
+}
+.home-section .cont {
+  display: flex;
+  margin-top: 1.4285714286vh;
+  align-items: end;
+  width: auto;
+}
+.home-section .cont .description {
+  font-size: 2.0833333333vw;
+}
+.home-section .cont .download {
+  margin-left: 7.4285714286vw;
+  padding: 14px 25px;
+  border-radius: 20px;
+  border: none;
+  background-color: #2EA787;
+  color: white;
+  transition: background-color 1s ease-in-out, color 1s ease, border 1s ease-in;
+}
+.home-section .cont .download:hover {
+  border: 1px solid #2EA787;
+  color: #2EA787;
+  background-color: transparent;
+  cursor: pointer;
+}
+.home-section .floating-nav {
+  position: absolute;
+  height: 17.3611111111vw;
+  width: 3.6458333333vw;
+  top: 13.5416666667vw;
+  left: 12.6388888889vw;
+  border: 1px solid white;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
+}
+.home-section .floating-nav a {
+  text-decoration: none;
+  color: white;
+  background-color: #292F36;
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-section .floating-nav a i.material-icons {
+  font-size: 24px;
+  color: #fff;
+}/*# sourceMappingURL=style.css.map */
