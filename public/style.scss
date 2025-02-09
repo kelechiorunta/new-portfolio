@@ -46,6 +46,7 @@ header{
     // border: 1px solid white;
     margin: auto;
     width: 100%;
+    height: max-content;
     max-width: calc(100% - 120px);
     display: flex;
     align-items: center;
@@ -54,6 +55,7 @@ header{
     top: 0;
     left: calc((60/1440) * 100vw);
     z-index: 10;
+    transition: background-color 1s ease-in-out, opacity 1s ease, top 1s ease-in-out;
 
     .logo{
         display: flex;
@@ -276,7 +278,7 @@ header{
         border-radius: 50%;
         opacity: 0;
         overflow: hidden;
-        transition: transform 2s ease-in-out, opacity 4s ease-in-out;
+        transition: transform 2s ease-in-out, opacity 1s ease-in-out;
 
         .blur-load img{
             width:100%;
@@ -404,7 +406,16 @@ header{
         background-color: black;//$fore-color;
     }
 
+    // .whitespace-section-next{
+    //     // margin-top: calc((206/1440) * 100vw);
+    //     // height: 50vh;
+    //     background-color: black;//$fore-color;
+    // }
+
+   
+
     .skills-section{
+        padding-top: calc((72/1440) * 100vw);
         height: 100vh;
         background-size: cover;
         background-attachment: fixed;
@@ -503,3 +514,190 @@ header{
         }
     }
     }
+
+    // Projects section
+
+    .projects{
+        padding-top: calc((72/1440) * 100vw);
+        padding-bottom: calc((72/1440) * 100vw);
+        margin-top: calc((306/1440) * 100vw);
+        // height: 100vh;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-color: #1A1E23;
+    
+    .title{
+        font-size: calc((40/1440) * 100vw);
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        margin: calc((20/1440) * 100vw) auto;
+        width: 100%;
+    }
+    .quote{
+        font-size: calc((24/1440) * 100vw);
+        color: white;
+        text-align: center;
+        margin: calc((24/1440) * 100vw) auto;
+        width: 100%;
+    }
+
+    .view-website{
+        margin-top: calc((123/1440) * 100vw);
+        color: $fore-color;
+        width: calc((161/1440) * 100vw);
+        height: calc((32/1440) * 100vw);
+        margin: auto;
+    }
+
+    .carousel-container {
+        margin-top: calc((58/1440) * 100vw);
+        position: relative;
+        width: calc((631/1440) * 100vw);
+        height: calc((462/1440) * 100vw);
+        overflow: hidden;
+        border-radius: calc((30/1440) * 100vw);
+        margin: auto;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        background-color: #000; // just as a fallback
+      
+        // Conditionally apply animation direction based on the container's data attribute
+        &[data-direction='next'] .projects.active {
+          animation: slideInFromRight 0.8s forwards;
+        }
+      
+        &[data-direction='prev'] .projects.active {
+          animation: slideInFromLeft 0.8s forwards;
+        }
+      
+        &[data-direction='next'] .projects.exit {
+          animation: slideOutToLeft 0.8s forwards;
+        }
+      
+        &[data-direction='prev'] .projects.exit {
+          animation: slideOutToRight 0.8s forwards;
+        }
+      }
+      
+      .projects, .news {
+        position: absolute;
+        top: -75%;
+        // left: 100%; /* Start off the screen to the right */
+        left: var(--left);
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 20px;
+        color: white;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+        h3,p{
+            // color: white;
+            // margin: auto;
+            // width: 100%;
+            visibility: hidden;
+        }
+        
+      }
+    
+      .indicators {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+    
+        .indicator {
+          width: 30px;
+          height: 4px;
+          background-color: rgba(255, 255, 255, 0.5);
+          transition: background-color 0.3s ease;
+          cursor: pointer;
+        }
+    
+        .active {
+          background-color: white;
+        }
+      }
+      
+      // Keyframes for slide-in from the right
+      @keyframes slideInFromRight {
+        from {
+          left: var(--left); /* Start from the right */
+        }
+        to {
+          left: 0%; /* Move to center */
+        }
+      }
+      
+      // Keyframes for slide-out to the left
+      @keyframes slideOutToLeft {
+        from {
+          left: 0%; /* Start from center */
+        }
+        to {
+          left: calc(-1 * var(--left)); /* Slide out to the left */
+        }
+      }
+      
+      // Keyframes for slide-in from the left
+      @keyframes slideInFromLeft {
+        from {
+          left: calc(1 * var(--left)); /* Start from the left */
+        }
+        to {
+          left: 0%; /* Move to center */
+        }
+      }
+      
+      // Keyframes for slide-out to the right
+      @keyframes slideOutToRight {
+        from {
+          left: 0%; /* Start from center */
+        }
+        to {
+          left: calc(-1 * var(--left)); /* Slide out to the right */
+        }
+      }
+      
+      /* Carousel Button Styles (same as before) */
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #292F36; //rgba(0, 0, 0, 0.5);
+        border: none;
+        width: calc((72/1440) * 100vw);
+        height: calc((72/1440) * 100vw);
+        color: white;
+        font-size: 1.5rem;
+        padding: calc((16/1440) * 100vw);
+        cursor: pointer;
+        z-index: 2;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .prev {
+        left: calc((40/1440) * 100vw);//20px; /* Position on the left */
+      }
+      
+      .next {
+        right: calc((40/1440) * 100vw);//20px; /* Position on the right */
+      }
+      
+      .carousel-btn:hover {
+        background-color: rgba(0, 0, 0, 0.8); /* Darken the button on hover */
+      }
+   
+}
