@@ -49,5 +49,29 @@ document.addEventListener('DOMContentLoaded', () => {
         animateSections(sections);
         
 
+        const hideAvatarObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    avatar.style.opacity = 0;
+                    mainHeader.style.opacity = 0;
+                    mainHeader.style.top = '-100%';
+                    mainHeader.style.backgroundColor = 'transparent';
+                    
+                }else{
+                    avatar.style.opacity = '1';
+                    mainHeader.style.opacity = '1';
+                    mainHeader.style.top = '0';
+                    // mainHeader.style.backgroundColor = '#1A1E23';
+                    // observer.unobserve(entry.target)
+                }
+            })
+        }, {rootMargin: '-700px'})
+
+        const allSections = document.querySelectorAll('section');
+        allSections.forEach(section => {
+            hideAvatarObserver.observe(section);
+        })
+        
+
 
 })

@@ -27,6 +27,8 @@ header {
   padding: 10px;
   margin: auto;
   width: 100%;
+  height: -moz-max-content;
+  height: max-content;
   max-width: calc(100% - 120px);
   display: flex;
   align-items: center;
@@ -35,6 +37,7 @@ header {
   top: 0;
   left: 4.1666666667vw;
   z-index: 10;
+  transition: background-color 1s ease-in-out, opacity 1s ease, top 1s ease-in-out;
 }
 header .logo {
   display: flex;
@@ -228,7 +231,7 @@ header .toggle-container .toggle.active {
   border-radius: 50%;
   opacity: 0;
   overflow: hidden;
-  transition: transform 2s ease-in-out, opacity 4s ease-in-out;
+  transition: transform 2s ease-in-out, opacity 1s ease-in-out;
 }
 .avatar .blur-load img {
   width: 100%;
@@ -332,6 +335,7 @@ header .toggle-container .toggle.active {
 }
 
 .skills-section {
+  padding-top: 5vw;
   height: 100vh;
   background-size: cover;
   background-attachment: fixed;
@@ -422,4 +426,158 @@ header .toggle-container .toggle.active {
   align-items: center;
   padding: 2.7777777778vw;
   border-radius: 50%;
+}
+
+.projects {
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+  margin-top: 21.25vw;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-color: #1A1E23;
+  /* Carousel Button Styles (same as before) */
+}
+.projects .title {
+  font-size: 2.7777777778vw;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin: 1.3888888889vw auto;
+  width: 100%;
+}
+.projects .quote {
+  font-size: 1.6666666667vw;
+  color: white;
+  text-align: center;
+  margin: 1.6666666667vw auto;
+  width: 100%;
+}
+.projects .view-website {
+  margin-top: 8.5416666667vw;
+  color: #2EA787;
+  width: 11.1805555556vw;
+  height: 2.2222222222vw;
+  margin: auto;
+}
+.projects .carousel-container {
+  margin-top: 4.0277777778vw;
+  position: relative;
+  width: 43.8194444444vw;
+  height: 32.0833333333vw;
+  overflow: hidden;
+  border-radius: 2.0833333333vw;
+  margin: auto;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-color: #000;
+}
+.projects .carousel-container[data-direction=next] .projects.active {
+  animation: slideInFromRight 0.8s forwards;
+}
+.projects .carousel-container[data-direction=prev] .projects.active {
+  animation: slideInFromLeft 0.8s forwards;
+}
+.projects .carousel-container[data-direction=next] .projects.exit {
+  animation: slideOutToLeft 0.8s forwards;
+}
+.projects .carousel-container[data-direction=prev] .projects.exit {
+  animation: slideOutToRight 0.8s forwards;
+}
+.projects .projects, .projects .news {
+  position: absolute;
+  top: -75%;
+  left: var(--left);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+.projects .projects h3, .projects .projects p, .projects .news h3, .projects .news p {
+  visibility: hidden;
+}
+.projects .indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+.projects .indicators .indicator {
+  width: 30px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.projects .indicators .active {
+  background-color: white;
+}
+@keyframes slideInFromRight {
+  from {
+    left: var(--left); /* Start from the right */
+  }
+  to {
+    left: 0%; /* Move to center */
+  }
+}
+@keyframes slideOutToLeft {
+  from {
+    left: 0%; /* Start from center */
+  }
+  to {
+    left: calc(-1 * var(--left)); /* Slide out to the left */
+  }
+}
+@keyframes slideInFromLeft {
+  from {
+    left: calc(1 * var(--left)); /* Start from the left */
+  }
+  to {
+    left: 0%; /* Move to center */
+  }
+}
+@keyframes slideOutToRight {
+  from {
+    left: 0%; /* Start from center */
+  }
+  to {
+    left: calc(-1 * var(--left)); /* Slide out to the right */
+  }
+}
+.projects .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #292F36;
+  border: none;
+  width: 5vw;
+  height: 5vw;
+  color: white;
+  font-size: 1.5rem;
+  padding: 1.1111111111vw;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.projects .prev {
+  left: 2.7777777778vw;
+}
+.projects .next {
+  right: 2.7777777778vw;
+}
+.projects .carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Darken the button on hover */
 }/*# sourceMappingURL=style.css.map */

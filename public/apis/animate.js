@@ -7,7 +7,7 @@ const animateSections = (sections) => {
                 setTimeout(() => {
                     child.style.opacity = 1;
                     child.style.transform = "translateY(0)";
-                }, index * 2000); // Stagger effect
+                }, index * 1000); // Stagger effect
             });
                 entry.target.style.transitionDelay = `${index * 2000}s`; // Stagger effect
                 entry.target.classList.add("visible");
