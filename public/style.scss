@@ -35,6 +35,7 @@ body{
     background-color: $back-color;
     display: flex;
     flex-direction: column;
+    scroll-behavior: smooth;
     // display: block;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -243,7 +244,7 @@ header{
             a{
                 text-decoration: none;
                 color: white;
-                background-color: $back-color;
+                // background-color: $back-color;
                 border-radius: calc((50/1440) * 100vw);;
                 // border: 1px solid white;
                 width: calc((50/1440) * 100vw);
@@ -252,7 +253,7 @@ header{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                
+                transition: background-color 1s ease-in-out;
                 i.material-icons {
                     font-size: 24px;
                     color: #fff;
@@ -402,16 +403,9 @@ header{
 
     .whitespace-section{
         margin-top: calc((206/1440) * 100vw);
-        height: 100vh;
+        height: 70vh;
         background-color: black;//$fore-color;
     }
-
-    // .whitespace-section-next{
-    //     // margin-top: calc((206/1440) * 100vw);
-    //     // height: 50vh;
-    //     background-color: black;//$fore-color;
-    // }
-
    
 
     .skills-section{
