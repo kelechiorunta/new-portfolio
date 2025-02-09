@@ -19,6 +19,7 @@ body {
   background-color: #292F36;
   display: flex;
   flex-direction: column;
+  scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -205,13 +206,13 @@ header .toggle-container .toggle.active {
 .home-section .floating-nav a {
   text-decoration: none;
   color: white;
-  background-color: #292F36;
   border-radius: 3.4722222222vw;
   width: 3.4722222222vw;
   height: 3.4722222222vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 1s ease-in-out;
 }
 .home-section .floating-nav a i.material-icons {
   font-size: 24px;
@@ -330,7 +331,7 @@ header .toggle-container .toggle.active {
 
 .whitespace-section {
   margin-top: 14.3055555556vw;
-  height: 100vh;
+  height: 70vh;
   background-color: black;
 }
 
