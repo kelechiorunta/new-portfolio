@@ -15,7 +15,7 @@ const sendMessage = async(event) => {
     if (!name || !email || !message) {
         const sendMessageBtn = document.forms[0].querySelector('.sendBtn');
         // sendMessageBtn.classList.add('ignore')
-        createToaster("Please complete the fields")
+        createToaster("Please complete the fields", 'failed')
         // alert('Please complete the fields');
         // return
     }
@@ -34,17 +34,18 @@ const sendMessage = async(event) => {
                 body: JSON.stringify(formdata)
             })
             const result = await response.json();
-            createToaster(result?.message)
+            createToaster(result?.message, 'success')
         }
         catch(err){
             console.error(err)
+            createToaster(err, 'failed');
         }
         finally{
             form.elements['name'].value = "";
             form.elements['email'].value = "";
             form.elements['message'].value = "";
             spinnerContainer.style.display = 'none';
-            sendMessageBtn.classList.add('ignore');
+            // sendMessageBtn.classList.add('ignore');
         }
     }
    
