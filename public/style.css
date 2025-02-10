@@ -820,6 +820,23 @@ header .toggle-container .toggle.active {
   border-bottom: 0.6944444444vw solid #2EA787;
   animation: spin 2s linear infinite;
 }
+.contact-section form .sendBtn.ignore {
+  animation: ignore 5s ease-in-out alternate-reverse infinitr;
+}
+@keyframes ignore {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-70px);
+  }
+  50% {
+    transform: translateY(70px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
 /*
 TOASTER IMPLEMENTATION
