@@ -23,19 +23,24 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: "Cinzel", sans-serif;
+    font-family: 'Cinzel', sans-serif;
+    
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 body{
     width: 100%;
     height: 100%;
     min-height: 1000vh;
-    max-width: calc((1728/1440) * 100vw);
+    max-width: 100vw;//calc((1728/1440) * 100vw);
     max-height: calc((1717/1440) * 100vw);;
     background-color: $back-color;
     display: flex;
     flex-direction: column;
-    scroll-behavior: smooth;
+    font-family: "Cinzel", sans-serif;
     // display: block;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -43,7 +48,7 @@ body{
 
 // Header styling
 header{
-    padding: 10px;
+    padding: calc((10/1440) * 100vh);
     // border: 1px solid white;
     margin: auto;
     width: 100%;
@@ -214,13 +219,13 @@ header{
             height: calc((250/1440) * 100vw);
             width: calc((52.5/1440) * 100vw);
             top: calc((195/1440) * 100vw);
-            left: calc((182/1440) * 100vw);
+            left: calc((50/1440) * 100vw);
             border: 1px solid white;
             border-radius: 50px;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            gap:10px;
+            gap:calc((10/1440) * 100vh);
             opacity: 0;
             z-index: 20;
             transition: opacity 10s ease-in-out;
@@ -538,11 +543,13 @@ header{
     }
 
     .view-website{
-        margin-top: calc((123/1440) * 100vw);
-        color: $fore-color;
-        width: calc((161/1440) * 100vw);
-        height: calc((32/1440) * 100vw);
+        // text-decoration: none;
         margin: auto;
+        display: block;
+        margin-top: calc((23/1440) * 100vw);
+        color: $fore-color;
+        width: 100%;//calc((161/1440) * 100vw);
+        height: calc((32/1440) * 100vw);
     }
 
     .carousel-container {
@@ -694,4 +701,360 @@ header{
         background-color: rgba(0, 0, 0, 0.8); /* Darken the button on hover */
       }
    
+}
+
+//About section
+
+.about-section{
+    // margin: auto;
+    margin-top: calc((306/1440) * 100vw);
+    min-height: 100vh;
+    background-image: url('./imgs/About.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    // display: block;
+    padding: calc((133/1440) * 100vw);
+
+    .about-container{
+        width: 100%;//calc((1498/1440) * 100vw);
+        height: calc((740/1440) * 100vw);
+        // border: 2px solid white;
+        gap: calc((100/1440) * 100vw);
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        .about-description-container{
+            width: 100%;//calc((829/1440) * 100vw);
+            height: calc((740/1440) * 100vw);
+           .aboutUsBtn{
+                width: calc((464/1440) * 100vw);
+                height: calc((176/1440) * 100vw);
+                border: calc((4/1440) * 100vw) solid $fore-color;
+                border-top-left-radius: calc((50/1440) * 100vw);
+                border-bottom-right-radius: calc((50/1440) * 100vw);
+                font-size: calc((48/1440) * 100vw);
+                background-color: transparent;
+                color: $fore-color;
+                margin-bottom: calc((48/1440) * 100vw);
+           }
+           .description{
+            font-family: 'Raleway', sans-serif !important;
+                height: calc((516/1440) * 100vw);
+                width: calc((829/1440) * 100vw);
+                background-color: $back-color;
+                border-radius: calc((50/1440) * 100vw);
+                padding: calc((8/1440) * 100vw) ;
+            h1{
+                font-size: calc((36/1440) * 100vw);
+                line-height: calc((32/1440) * 100vw);
+                width: auto;
+                margin-right: calc((26/1440) * 100vw);
+                margin-left: calc((26/1440) * 100vw);
+                margin-top: calc((18/1440) * 100vw);
+                margin-bottom: calc((-4/1440) * 100vw);
+                // margin-top: calc((26/1440) * 100vw);
+                padding: calc((8/1440) * 100vw);
+                color: $fore-color;
+            }
+            p{
+                margin: calc((8/1440) * 100vw) calc((26/1440) * 100vw);
+                font-size: calc((20/1440) * 100vw);
+                line-height: calc((32/1440) * 100vw);
+                color: white;
+                padding: calc((8/1440) * 100vw);
+            }
+            
+            }
+
+        }
+        .about-image-container{
+            
+            border-top: calc((10/1440) * 100vw) solid white;
+            border-bottom: calc((10/1440) * 100vw) solid white;
+            border-right: calc((10/1440) * 100vw) solid $fore-color;
+            border-left: calc((10/1440) * 100vw) solid $fore-color;
+            border-radius: 50%;
+            padding: calc((4/1440) * 100vw);
+            min-height: calc((249/1440) * 100vw);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: spin 2s ease-in-out infinite;
+            position: relative;
+
+            @keyframes spin {
+                0%{
+                    transform: rotate(0);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            .about-image{
+                margin: auto;
+                width: 90%;//calc((740/1440) * 100vw);
+                height: 90%;
+                min-width: calc((252/1440) * 100vw);
+                min-height: calc((249/1440) * 100vw);
+                // max-width: calc((440/1440) * 100vw);
+                // max-height: calc((440/1440) * 100vh);
+                background-image: url('./imgs/Me.jpg');
+                filter: brightness(100%);
+                background-position: center;
+                background-size: cover;
+                background-attachment: fixed;
+                border-top: calc((10/1440) * 100vw) solid $fore-color;
+                border-bottom: calc((10/1440) * 100vw) solid $fore-color;
+                border-right: calc((10/1440) * 100vw) solid white;
+                border-left: calc((10/1440) * 100vw) solid white;
+                border-radius: 50%;//calc((50/1440) * 100vw);
+                animation: spin 2s ease-in-out alternate-reverse infinite;
+            }    
+        }
+        
+    }
+}
+
+//Contact section
+
+.contact-section{
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: black;
+    min-height: 150vh;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: calc((306/1440) * 100vw);
+    padding: auto calc((306/1440) * 100vw);
+
+    .contactBtn{
+        // display: block;
+        margin: auto;
+        margin-top: calc((86/1440) * 100vw);
+        width: calc((464/1440) * 100vw);
+        height: calc((176/1440) * 100vw);
+        // border: calc((4/1440) * 100vw) solid $fore-color;
+        // border-top-left-radius: calc((50/1440) * 100vw);
+        // border-bottom-right-radius: calc((50/1440) * 100vw);
+        border: none;
+        font-size: calc((48/1440) * 100vw);
+        background-color: transparent;
+        color: $fore-color;
+        margin-bottom: calc((23/1440) * 100vw);
+   }
+
+   .title{
+        color: white;
+        font-size: calc((24/1440) * 100vw);
+        margin: calc((23/1440) * 100vw) auto;
+        margin-top: calc((-20/1440) * 100vw);
+    }
+
+   .messageBtn{
+    margin: calc((23/1440) * 100vw) auto;
+    width: 50%; //calc((464/1440) * 100vw);
+    padding: auto calc((8/1440) * 100vw);;
+    height: calc((176/1440) * 100vw);
+    border: calc((4/1440) * 100vw) solid $fore-color;
+    border-top-left-radius: calc((50/1440) * 100vw);
+    border-bottom-right-radius: calc((50/1440) * 100vw);
+    font-size: calc((48/1440) * 100vw);
+    background-color: transparent;
+    color: $fore-color;
+    // margin-bottom: calc((48/1440) * 100vw);
+}
+
+form{
+    width: 80%;
+    // height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc((38/1440) * 100vw);;
+    justify-content: space-between;
+    // border: 2px solid white;
+    margin: auto;
+    margin-top: calc((28/1440) * 100vw);
+    padding: auto; //calc((176/1440) * 100vw);
+    .input-container{
+        display: flex;
+        flex-direction: column;
+        gap: calc((38/1440) * 100vw);
+        justify-content: flex-end;
+        align-items: flex-start;
+        width: 40%;
+        
+        label{
+            color: $fore-color;
+            margin: auto calc((43/1440) * 100vw); //calc((176/1440) * 100vw);
+            display: inline-block;
+        }
+        input{
+            border: none;
+            width: 100%;
+            margin: auto calc((43/1440) * 100vw); //calc((176/1440) * 100vw);
+            border-bottom: 4px solid $fore-color;
+            background-color: transparent;
+            color: $fore-color;
+            display: inline-block;
+            &:focus{
+                color: $fore-color;
+                outline: none;
+                background-color: transparent;
+            }
+
+        }
+    }
+    .messgage-container{
+        margin-top: calc((43/1440) * 100vw);
+        min-width: 1700px;
+        input{
+            width: 1700px;
+        }
+    }
+    .sendBtn{
+        position: relative;
+        font-size: calc((24/1440) * 100vw);
+        line-height: calc((32/1440) * 100vw);
+        padding: calc((20/1440) * 100vw) calc((20/1440) * 100vw);
+        background-color: $fore-color;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: calc((10/1440) * 100vw);
+        margin: auto 34%;
+        border-radius: calc((50/1440) * 100vw);
+        transition: border 1s ease-in, color 1s ease-in, background-color 1s ease-in-out;
+        &:hover{
+            cursor: pointer;
+            border: 2px solid $fore-color;
+            background-color: transparent;
+            color: $fore-color;
+        }
+        
+            .spinner_container{
+                z-index: 10;
+                width: 100%;
+                position:absolute;
+                right:0 ;
+                top: 0;
+                height: 100%;
+                inset: 0;
+                background-color: rgba(0,0,0,0.5);
+                place-content: center;
+                display: none;
+            }
+            .spinner{
+                border: calc((10/1440) * 100vw) solid white;
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: calc((50/1440) * 100vw);
+                height: calc((50/1440) * 100vw);
+                border-radius: 50%;
+                border-top: calc((10/1440) * 100vw) solid $fore-color;
+                border-bottom: calc((10/1440) * 100vw) solid $fore-color;
+                animation: spin 2s linear infinite;
+        
+            }
+        
+    }
+   
+}
+}
+
+
+    /*
+    TOASTER IMPLEMENTATION
+    */
+
+    /* The snackbar - position it at the bottom and in the middle of the screen */
+    #snackbar {
+        display: flex;
+        flex-direction: column;
+        font-family: "Jost", sans-serif;
+        gap: 1rem;
+        height: 200px;
+        font-size: 1.5vw;
+        visibility: hidden; /* Hidden by default. Visible on click */
+        width: 500px; /* Set a default minimum width */
+        // margin-left: -150px; /* Divide value of min-width by 2 */
+        background-color: #333; /* Black background color */
+        color: #fff; /* White text color */
+        text-align: center; /* Centered text */
+        border-radius: 2px; /* Rounded borders */
+        padding: 16px; /* Padding */
+        position: fixed; /* Sit on top of the screen */
+        z-index: 50; /* Add a z-index if needed */
+        left: calc(50% - 250px); /* Center the snackbar */
+        bottom: 30px; /* 30px from the bottom */
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.9);
+
+    }
+    
+    /* Show the snackbar when clicking on a button (class added with JavaScript) */
+    #snackbar.show {
+        visibility: visible; /* Show the snackbar */
+        /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+        However, delay the fade out process for 2.5 seconds */
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    
+    /* Animations to fade the snackbar in and out */
+    @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+    
+    @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+    
+    @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+    
+    @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
+
+    //Custom loader
+
+    //Creating a custom loader
+.loader-container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background-color: rgba(0,0,0, 0.6);
+    display: none;
+    .loader{
+        top: 50%;
+        left: 50%;
+        // position: absolute;
+        border:0.3vw solid white;
+        border-top: 0.3vw solid green;
+        border-bottom: 0.3vw solid green;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 2s ease-in-out infinite;
+    }
 }

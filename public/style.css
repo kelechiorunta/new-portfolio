@@ -10,22 +10,26 @@
   font-family: "Cinzel", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   width: 100%;
   height: 100%;
   min-height: 1000vh;
-  max-width: 120vw;
+  max-width: 100vw;
   max-height: 119.2361111111vw;
   background-color: #292F36;
   display: flex;
   flex-direction: column;
-  scroll-behavior: smooth;
+  font-family: "Cinzel", sans-serif;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
 header {
-  padding: 10px;
+  padding: 0.6944444444vh;
   margin: auto;
   width: 100%;
   height: -moz-max-content;
@@ -180,13 +184,13 @@ header .toggle-container .toggle.active {
   height: 17.3611111111vw;
   width: 3.6458333333vw;
   top: 13.5416666667vw;
-  left: 12.6388888889vw;
+  left: 3.4722222222vw;
   border: 1px solid white;
   border-radius: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  gap: 10px;
+  gap: 0.6944444444vh;
   opacity: 0;
   z-index: 20;
   transition: opacity 10s ease-in-out;
@@ -455,11 +459,12 @@ header .toggle-container .toggle.active {
   width: 100%;
 }
 .projects .view-website {
-  margin-top: 8.5416666667vw;
-  color: #2EA787;
-  width: 11.1805555556vw;
-  height: 2.2222222222vw;
   margin: auto;
+  display: block;
+  margin-top: 1.5972222222vw;
+  color: #2EA787;
+  width: 100%;
+  height: 2.2222222222vw;
 }
 .projects .carousel-container {
   margin-top: 4.0277777778vw;
@@ -581,4 +586,317 @@ header .toggle-container .toggle.active {
 }
 .projects .carousel-btn:hover {
   background-color: rgba(0, 0, 0, 0.8); /* Darken the button on hover */
+}
+
+.about-section {
+  margin-top: 21.25vw;
+  min-height: 100vh;
+  background-image: url("./imgs/About.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 9.2361111111vw;
+}
+.about-section .about-container {
+  width: 100%;
+  height: 51.3888888889vw;
+  gap: 6.9444444444vw;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.about-section .about-container .about-description-container {
+  width: 100%;
+  height: 51.3888888889vw;
+}
+.about-section .about-container .about-description-container .aboutUsBtn {
+  width: 32.2222222222vw;
+  height: 12.2222222222vw;
+  border: 0.2777777778vw solid #2EA787;
+  border-top-left-radius: 3.4722222222vw;
+  border-bottom-right-radius: 3.4722222222vw;
+  font-size: 3.3333333333vw;
+  background-color: transparent;
+  color: #2EA787;
+  margin-bottom: 3.3333333333vw;
+}
+.about-section .about-container .about-description-container .description {
+  font-family: "Raleway", sans-serif !important;
+  height: 35.8333333333vw;
+  width: 57.5694444444vw;
+  background-color: #292F36;
+  border-radius: 3.4722222222vw;
+  padding: 0.5555555556vw;
+}
+.about-section .about-container .about-description-container .description h1 {
+  font-size: 2.5vw;
+  line-height: 2.2222222222vw;
+  width: auto;
+  margin-right: 1.8055555556vw;
+  margin-left: 1.8055555556vw;
+  margin-top: 1.25vw;
+  margin-bottom: -0.2777777778vw;
+  padding: 0.5555555556vw;
+  color: #2EA787;
+}
+.about-section .about-container .about-description-container .description p {
+  margin: 0.5555555556vw 1.8055555556vw;
+  font-size: 1.3888888889vw;
+  line-height: 2.2222222222vw;
+  color: white;
+  padding: 0.5555555556vw;
+}
+.about-section .about-container .about-image-container {
+  border-top: 0.6944444444vw solid white;
+  border-bottom: 0.6944444444vw solid white;
+  border-right: 0.6944444444vw solid #2EA787;
+  border-left: 0.6944444444vw solid #2EA787;
+  border-radius: 50%;
+  padding: 0.2777777778vw;
+  min-height: 17.2916666667vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spin 2s ease-in-out infinite;
+  position: relative;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.about-section .about-container .about-image-container .about-image {
+  margin: auto;
+  width: 90%;
+  height: 90%;
+  min-width: 17.5vw;
+  min-height: 17.2916666667vw;
+  background-image: url("./imgs/Me.jpg");
+  filter: brightness(100%);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  border-top: 0.6944444444vw solid #2EA787;
+  border-bottom: 0.6944444444vw solid #2EA787;
+  border-right: 0.6944444444vw solid white;
+  border-left: 0.6944444444vw solid white;
+  border-radius: 50%;
+  animation: spin 2s ease-in-out alternate-reverse infinite;
+}
+
+.contact-section {
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-color: black;
+  min-height: 150vh;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 21.25vw;
+  padding: auto 21.25vw;
+}
+.contact-section .contactBtn {
+  margin: auto;
+  margin-top: 5.9722222222vw;
+  width: 32.2222222222vw;
+  height: 12.2222222222vw;
+  border: none;
+  font-size: 3.3333333333vw;
+  background-color: transparent;
+  color: #2EA787;
+  margin-bottom: 1.5972222222vw;
+}
+.contact-section .title {
+  color: white;
+  font-size: 1.6666666667vw;
+  margin: 1.5972222222vw auto;
+  margin-top: -1.3888888889vw;
+}
+.contact-section .messageBtn {
+  margin: 1.5972222222vw auto;
+  width: 50%;
+  padding: auto 0.5555555556vw;
+  height: 12.2222222222vw;
+  border: 0.2777777778vw solid #2EA787;
+  border-top-left-radius: 3.4722222222vw;
+  border-bottom-right-radius: 3.4722222222vw;
+  font-size: 3.3333333333vw;
+  background-color: transparent;
+  color: #2EA787;
+}
+.contact-section form {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.6388888889vw;
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 1.9444444444vw;
+  padding: auto;
+}
+.contact-section form .input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.6388888889vw;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 40%;
+}
+.contact-section form .input-container label {
+  color: #2EA787;
+  margin: auto 2.9861111111vw;
+  display: inline-block;
+}
+.contact-section form .input-container input {
+  border: none;
+  width: 100%;
+  margin: auto 2.9861111111vw;
+  border-bottom: 4px solid #2EA787;
+  background-color: transparent;
+  color: #2EA787;
+  display: inline-block;
+}
+.contact-section form .input-container input:focus {
+  color: #2EA787;
+  outline: none;
+  background-color: transparent;
+}
+.contact-section form .messgage-container {
+  margin-top: 2.9861111111vw;
+  min-width: 1700px;
+}
+.contact-section form .messgage-container input {
+  width: 1700px;
+}
+.contact-section form .sendBtn {
+  position: relative;
+  font-size: 1.6666666667vw;
+  line-height: 2.2222222222vw;
+  padding: 1.3888888889vw 1.3888888889vw;
+  background-color: #2EA787;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6944444444vw;
+  margin: auto 34%;
+  border-radius: 3.4722222222vw;
+  transition: border 1s ease-in, color 1s ease-in, background-color 1s ease-in-out;
+}
+.contact-section form .sendBtn:hover {
+  cursor: pointer;
+  border: 2px solid #2EA787;
+  background-color: transparent;
+  color: #2EA787;
+}
+.contact-section form .sendBtn .spinner_container {
+  z-index: 10;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  place-content: center;
+  display: none;
+}
+.contact-section form .sendBtn .spinner {
+  border: 0.6944444444vw solid white;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.4722222222vw;
+  height: 3.4722222222vw;
+  border-radius: 50%;
+  border-top: 0.6944444444vw solid #2EA787;
+  border-bottom: 0.6944444444vw solid #2EA787;
+  animation: spin 2s linear infinite;
+}
+
+/*
+TOASTER IMPLEMENTATION
+*/
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+  display: flex;
+  flex-direction: column;
+  font-family: "Jost", sans-serif;
+  gap: 1rem;
+  height: 200px;
+  font-size: 1.5vw;
+  visibility: hidden; /* Hidden by default. Visible on click */
+  width: 500px; /* Set a default minimum width */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 50; /* Add a z-index if needed */
+  left: calc(50% - 250px); /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.9);
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+.loader-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+}
+.loader-container .loader {
+  top: 50%;
+  left: 50%;
+  border: 0.3vw solid white;
+  border-top: 0.3vw solid green;
+  border-bottom: 0.3vw solid green;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s ease-in-out infinite;
 }/*# sourceMappingURL=style.css.map */

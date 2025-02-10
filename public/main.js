@@ -1,5 +1,6 @@
 import { animateText } from "./apis/typer.js"
 import { animateAvatarimages, animateSections } from "./apis/animate.js";
+import { sendMessage } from "./apis/sendMessage.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     const landingTitle = document.querySelector('.home-section .title');
@@ -9,6 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = mainHeader.querySelector('.toggle-container');
     const homeSection = document.querySelector('.home-section');
 
+    const aboutSection = document.querySelector('.about-section');
+    const parasection = aboutSection.querySelector('.about-container .about-description-container');
+    const para1 = parasection.querySelector('.description .para1');
+    const para2 = parasection.querySelector('.description .para2');
+    const para3 = parasection.querySelector('.description .para3');
 
     // Animate the landing-section contents with a delay of 5 secs
     animateText("Hi, I'm Kelechi", landingTitle, 100, 2000)
@@ -22,6 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
             floatingNav.style.opacity='1'
             landingTitle.classList.add('animate');
         });
+
+    // animateText("Hi, my name is Kelechi, and I specialize in web development that utilizes  HTML, CSS and Javascript.", para1, 100, 2000)
+    // .then(() => {
+    //     para1.textContent = "Hi, my name is Kelechi, and I specialize in web development that utilizes  HTML, CSS and Javascript.";
+    // }).then(() => {
+    //     animateText("I am a highly motivated individual, who is committed to  implementing  clear and concise code that works. I am also committed to learning and understanding the processes or workflows in building optimized and functional websites.", para2, 100, 2000)
+    // })
+    
+    
         let istoggled = false;
         // ToggleBtn Animations
         toggleBtn.addEventListener('click', function(){
@@ -48,14 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const sections = document.querySelectorAll("section"); // Add the "section" class to relevant sections
         animateSections(sections);
         
+        
 
-        const hideAvatarObserver = new IntersectionObserver((entries, observer) => {
+        const floatingNavObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    avatar.style.opacity = 0;
-                    mainHeader.style.opacity = 0;
-                    mainHeader.style.top = '-100%';
-                    mainHeader.style.backgroundColor = 'transparent';
                     const floatingNavs = floatingNav.querySelectorAll('a');
                     console.log(entry.target.classList)
                     floatingNavs.forEach(nav => {
@@ -66,38 +78,43 @@ document.addEventListener('DOMContentLoaded', () => {
                             nav.style.backgroundColor = `transparent`;
                         }
                     })
-                   
-                    
-                }else{
-                    // avatar.style.opacity = '0';
-                    mainHeader.style.opacity = '1';
-                    mainHeader.style.top = '0';
-                    // mainHeader.style.backgroundColor = '#1A1E23';
-                    // observer.unobserve(entry.target)
                 }
             })
-        }, {rootMargin: '0px', threshold:[0]})
+        }, {threshold:[0]})
 
-        const allSections = document.querySelectorAll('section');
-        allSections.forEach(section => {
-            hideAvatarObserver.observe(section);
+        const allOtherSections = document.querySelectorAll('section:not(:first-child)');
+        allOtherSections.forEach(section => {
+            floatingNavObserver.observe(section);
         })
 
-        const showAvatarObserver = new IntersectionObserver((entries, observer) => {
+        const HeaderAndAvatarObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    avatar.style.opacity = 1;
-                    
-                   
-                    
+                        avatar.style.opacity = 0;
+                        mainHeader.style.opacity = 0;
+                        mainHeader.style.top = '-100%';
+                        mainHeader.style.backgroundColor = 'transparent';
+                }else{
+                        avatar.style.opacity = 1;
+                        mainHeader.style.opacity = '1';
+                        mainHeader.style.top = '0';    
                 }
             })
-        }, {threshold:0})
+        }, {threshold:[0, 0.5, 0.75]})
         
-        const allwhiteSpaces = document.querySelectorAll('whitespace-section');
-        allwhiteSpaces.forEach(section => {
-            showAvatarObserver.observe(section);
+        const otherSections = document.querySelectorAll('section:not(:first-of-type)');
+        console.log(otherSections)
+        otherSections.forEach(section => {
+            HeaderAndAvatarObserver.observe(section);
         })
+
+        mainHeader.style.opacity = '1';
+        mainHeader.style.top = '0';
+
+
+        //Sending contact request from the contact section using the sendMessage API
+        const sendMessageBtn = document.forms[0].querySelector('.sendBtn');
+        sendMessageBtn.addEventListener('click', sendMessage )
 
 
 })
