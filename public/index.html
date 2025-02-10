@@ -14,7 +14,7 @@
 <body>
     <header class="main-header">
         <a class="logo" href="/">
-            <img src="./imgs/kuskus.jpg" width="50" height="50" alt="logo" /> 
+            <img src="./imgs/Me.jpg" width="50" height="50" alt="logo" /> 
             <h1>KELECHI</h1>
         </a>
         <nav class="primary-nav">
@@ -32,19 +32,19 @@
         <h1 class="title"></h1>
         <div class="cont">
             <p class="description">Hi, I am Kelechi, an aspiring Full-stack developer with two years of experience building web applications.</p>
-        <button class="download">Download CV</button>
+            <button class="download"><a href="/cv" style="text-decoration: none; color: white;" download>Download CV</a> </button>
         </div>
         <nav class="floating-nav">
             <a class="home home" href="#home">
                 <i class="material-icons">home</i>
             </a>
-            <a class="skill about" href="#about">
-                <i class="material-icons">person</i>
-            </a>
             <a class="project portfolio" href="#portfolio">
                 <i class="material-icons">work</i>
             </a>
-            <a class="contact-nav contact" href="#contact">
+            <a class="about skill" href="#about">
+                <i class="material-icons">person</i>
+            </a>
+            <a class="contact contact-nav" href="#contact">
                 <i class="material-icons">email</i>
             </a>
         </nav>
@@ -70,11 +70,12 @@
             <div class="blur-load" style="background: url('./imgs/kuskus-20.jpg'); background-size: cover; background-position: center;";>
                 <img src="./imgs/kuskus.jpg" alt="Kelechi" class="hero-image" loading="lazy"/>
             </div>
+            <div class="blur-load" style="background: url('./imgs/kuskus-20.jpg'); background-size: cover; background-position: center;";>
+                <img src="./imgs/Me.jpg" alt="Kelechi" class="hero-image" loading="lazy"/>
+            </div>
             <!-- <img src="./imgs/logistics2.jpg" alt="Kelechi" class="hero-image" /> -->
         </div>
     </div>
-        <!-- <div class="slide1 slide"></div>
-        <div class="slide2 slide"></div> -->
     </div>
 
     <div id="whitespace-section" class="whitespace-section">
@@ -118,12 +119,12 @@
     <!-- <div id="whitespace-section-next" class="whitespace-section">
         
     </div> -->
-    <section class="projects">
+    <section id="portfolio" class="projects">
         <h1 class="title">Projects </h1>
         <p class="quote">I am happy to share few of my learning projects.</h1>
         
         <!-- Carousel for projects -->
-         <p class="view-website">View Website</p>
+         <a href="" class="view-website">View Website</a>
             <div class="carousel-container">
                 
                 <a href="https://orunta-kelechi-lendsqr-fe-test.vercel.app/">
@@ -149,7 +150,7 @@
 
                 <a href="https://inventory-app-alpha-jet.vercel.app/">
                     <div class="news projects" style="background-image: url('./imgs/inventory.png');">
-                        <h3>- Inventory</h3>
+                        <h3>- D-Inventory</h3>
                         <p>A template business inventory app built with Nextjs and MongoDB.</p>
                     </div>
                 </a>
@@ -158,6 +159,20 @@
                     <div class="news projects" style="background-image: url('./imgs/shadcn-ui.png');">
                         <h3>- ShadcnUI</h3>
                         <p>An DashBoard UI implementaion with Shadcn library of Nextjs for template and sampling exercise.</p>
+                    </div>
+                </a>
+
+                <a href="https://cocheriderevamped-ui.vercel.app/">
+                    <div class="news projects" style="background-image: url('./imgs/logistics.png');">
+                        <h3>- COCHE</h3>
+                        <p>A Logistics template website built with Nextjs.</p>
+                    </div>
+                </a>
+
+                <a href="https://laundry-app-hazel.vercel.app/">
+                    <div class="news projects" style="background-image: url('./imgs/laundry.png');">
+                        <h3>- LAUNDRY-APP</h3>
+                        <p>A Laundry template website built with Nextjs and Firebase.</p>
                     </div>
                 </a>
     
@@ -181,5 +196,84 @@
                 <p></p>
             </div>
     </section>
+    <!-- <div id="whitespace-section" class="whitespace-section">
+        
+    </div> -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-description-container">
+                <button class="aboutUsBtn">ABOUT ME</button>
+                <div class="description">
+                   
+                                <h1>HELLO</h1>
+
+                                <p class="para1">
+                                    Hi, my name is Kelechi, and I specialize in web development that utilizes  HTML, CSS and Javascript as well as React. I also leverage on backend technologies such as Node and Express for server APIs as well as MongoDB for database storage and management.
+                                </p>
+                                <p class="para2">
+                                    I am a highly motivated individual, who is committed to  implementing  clear and concise code that works. I am also committed to learning and understanding the processes or workflows in building optimized and functional websites.
+                                </p>
+                                <p class="para3">
+                                    When I’m not coding, I love sharing my progress and ideas with friends and families. I also love reading documentations and  learning UI/UX designs.
+                                </p>
+                    
+                </div>
+            </div>
+            <div class="about-image-container">
+                <!-- <div class="progress-container"></div> -->
+                <div class="about-image">
+                    <!-- <h1>Welcome</h1> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact-section">
+        <button class="contactBtn">CONTACT ME</button>
+        <p class="title">I’m happy to connect with you for full-time role</p>
+        <button class="messageBtn">Send Me a Message</button>
+        <form class="contact-form">
+            <div class="input-container">
+                <label for="name" class="name-label">Your Name *</label>
+                <input type="text" name="name" class="name-input"/>
+            </div>
+            <div class="input-container">
+                <label for="email" class="email-label">Your Email *</label>
+                <input type="email" name="email" class="email-input"/>
+            </div>
+            <div class="input-container message-container">
+                <label for="message" class="message-label">Your Request *</label>
+                <input type="text" name="message" class="message-input"/>
+            </div>
+            <!-- <div class="sendBtnContainer"> -->
+            <button class="sendBtn" type="submit">
+                <div class="spinner_container">
+                    <div class="spinner"></div>
+                </div>
+                Send Me a Message
+                <img src="./imgs/icon-send.png" alt="icon-send" width="auto" height="auto" />
+            </button>
+            <!-- </div> -->
+            
+            </form>
+    </section>
+
+    <!-- TOASTER -->
+    <div id="snackbar">
+        <svg id="mySVG" width="5" height="5" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+            <path 
+              fill="none" 
+              stroke="green" 
+              stroke-width="3" 
+              id="triangle" 
+              d="M5 25 L20 40 L45 10" 
+            />
+        </svg>
+    </div>
+
+    <!-- LOADER -->
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
 </body>
 </html>

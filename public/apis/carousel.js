@@ -1,5 +1,7 @@
         const root = document.querySelector(':root');
         const slides = document.querySelectorAll('.projects .carousel-container .news');
+        const slidesUrl = document.querySelectorAll('.projects .carousel-container a');
+        const viewWebsite = document.querySelector('.projects .view-website');
         const indicators = document.querySelectorAll('.projects .carousel-container .indicator');
         const prevButton = document.querySelector('.carousel-btn.prev');
         const nextButton = document.querySelector('.carousel-btn.next');
@@ -29,27 +31,28 @@
           slides.forEach((slide, i) => {
             
             if (i === index) {
-            const commentTitle = slide.querySelector('h3');
-            const commentDescription = slide.querySelector('p');
-            comments_heading.textContent = commentTitle.textContent;
-            comments_description.textContent = commentDescription.textContent;
-            comments_heading.style.color = 'white';
-            comments_heading.style.margin = 'calc((6/1440) * 100vw) auto';
-            comments_heading.style.width = 'calc((161/1440) * 100vw)';
-            comments_heading.style.height = 'calc((32/1440) * 100vw)';
-            comments_heading.style.textAlign = 'center';
-            comments_description.style.color = 'white';
-            comments_description.style.margin = 'auto';
-            comments_description.style.width = '100%';
-            comments_description.style.textAlign = 'center';
-              slide.classList.add('active');
-              slide.classList.remove('exit');
-            } else if (slide.classList.contains('active')) {
-              slide.classList.remove('active');
-              slide.classList.add('exit');
-            } else {
-              slide.classList.remove('active', 'exit');
-            }
+                viewWebsite.href = slidesUrl[i].href
+                const commentTitle = slide.querySelector('h3');
+                const commentDescription = slide.querySelector('p');
+                comments_heading.textContent = commentTitle.textContent;
+                comments_description.textContent = commentDescription.textContent;
+                comments_heading.style.color = 'white';
+                comments_heading.style.margin = 'calc((12/1440) * 100vw) auto';
+                comments_heading.style.width = '100%';//'calc((161/1440) * 100vw)';
+                comments_heading.style.height = 'calc((32/1440) * 100vw)';
+                comments_heading.style.textAlign = 'center';
+                comments_description.style.color = 'white';
+                comments_description.style.margin = 'auto';
+                comments_description.style.width = '100%';
+                comments_description.style.textAlign = 'center';
+                slide.classList.add('active');
+                slide.classList.remove('exit');
+                } else if (slide.classList.contains('active')) {
+                slide.classList.remove('active');
+                slide.classList.add('exit');
+                } else {
+                slide.classList.remove('active', 'exit');
+                }
            
           });
       

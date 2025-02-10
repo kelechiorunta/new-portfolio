@@ -2,6 +2,16 @@ const animateSections = (sections) => {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
+                if (entry.target.classList.contains('about-section')){
+                    const children = entry.target.children;
+            Array.from(children).forEach((child, index) => {
+                setTimeout(() => {
+                    child.style.opacity = 1;
+                    child.style.transform = "translateX(0%)";
+                }, index * 500); // Stagger effect
+            });
+                }
+                else {
                 const children = entry.target.children;
             Array.from(children).forEach((child, index) => {
                 setTimeout(() => {
@@ -9,22 +19,33 @@ const animateSections = (sections) => {
                     child.style.transform = "translateY(0)";
                 }, index * 500); // Stagger effect
             });
+        }
                 entry.target.style.transitionDelay = `${index * 2000}s`; // Stagger effect
                 entry.target.classList.add("visible");
                 observer.unobserve(entry.target); // Stop observing once animated
             }
+        
         });
     }, { threshold: 0 });
 
     
 
     sections.forEach((section) => {
+        if (section.classList.contains('about-section')){
+            const children = section.children;
+            Array.from(children).forEach((child) => {
+                child.style.opacity = 0;
+                child.style.transform = "translateX(-100%)";
+                child.style.transition = "opacity 1.8s ease-out, transform 1.6s ease-in-out";
+            });
+        } else {
         const children = section.children;
         Array.from(children).forEach((child) => {
             child.style.opacity = 0;
             child.style.transform = "translateY(200px)";
             child.style.transition = "opacity 0.8s ease-out, transform 0.6s ease-out";
         });
+    }
 
         observer.observe(section);
     });
