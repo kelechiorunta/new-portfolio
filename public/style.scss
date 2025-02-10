@@ -965,6 +965,25 @@ form{
             }
         
     }
+    .sendBtn.ignore{
+        // position: absolute;
+        animation: ignore 5s ease-in-out alternate-reverse infinitr;
+    }
+
+    @keyframes ignore {
+        0%{
+            transform: translateY(0);
+        }
+        25%{
+            transform: translateY(-70px);
+        }
+        50%{
+            transform: translateY(70px);
+        }
+        100%{
+            transform: translateY(0);
+        }
+    }
    
 }
 }

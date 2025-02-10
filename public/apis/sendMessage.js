@@ -13,8 +13,11 @@ const sendMessage = async(event) => {
 
 
     if (!name || !email || !message) {
-        alert('Please complete the fields');
-        return
+        const sendMessageBtn = document.forms[0].querySelector('.sendBtn');
+        // sendMessageBtn.classList.add('ignore')
+        createToaster("Please complete the fields")
+        // alert('Please complete the fields');
+        // return
     }
     else{
         console.log({name, email, message})
@@ -41,6 +44,7 @@ const sendMessage = async(event) => {
             form.elements['email'].value = "";
             form.elements['message'].value = "";
             spinnerContainer.style.display = 'none';
+            sendMessageBtn.classList.add('ignore');
         }
     }
    
