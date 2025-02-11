@@ -16,9 +16,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const para2 = parasection.querySelector('.description .para2');
     const para3 = parasection.querySelector('.description .para3');
 
+    let istoggled = false;
+    // ToggleBtn Animations
+    toggleBtn.addEventListener('click', function(){
+        const toggle = this.querySelector('.toggle');
+        toggle.classList.toggle('active');
+        if (!istoggled) {
+            homeSection.style.backgroundImage = 'url(./imgs/developer_background.png)';
+            // homeSection.style.filter = 'brightness(0.7)';
+            istoggled = true
+        } else {
+            homeSection.style.backgroundImage = 'url(./imgs/developer.png)';
+            istoggled = false
+        }
+        
+    })
+
     // Animate the landing-section contents with a delay of 5 secs
     animateText("Hi, I'm Kelechi", landingTitle, 100, 2000)
         .then(() => animateText("Full-Stack Developer", landingTitle, 100, 2000))
+        .then(() => toggleBtn.click())
         .then(() => animateText("Fun Programmer", landingTitle, 100, 2000))
         .then(() => animateText("Fun Learner", landingTitle, 100, 2000))
         .then(() => {
@@ -27,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             avatar.style.opacity='1'
             floatingNav.style.opacity='1'
             landingTitle.classList.add('animate');
+            toggleBtn.click();
         });
 
     // animateText("Hi, my name is Kelechi, and I specialize in web development that utilizes  HTML, CSS and Javascript.", para1, 100, 2000)
@@ -36,22 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     //     animateText("I am a highly motivated individual, who is committed to  implementing  clear and concise code that works. I am also committed to learning and understanding the processes or workflows in building optimized and functional websites.", para2, 100, 2000)
     // })
     
-    
-        let istoggled = false;
-        // ToggleBtn Animations
-        toggleBtn.addEventListener('click', function(){
-            const toggle = this.querySelector('.toggle');
-            toggle.classList.toggle('active');
-            if (!istoggled) {
-                homeSection.style.backgroundImage = 'url(./imgs/developer_background.png)';
-                // homeSection.style.filter = 'brightness(0.7)';
-                istoggled = true
-            } else {
-                homeSection.style.backgroundImage = 'url(./imgs/developer.png)';
-                istoggled = false
-            }
-            
-        })
 
         //Animate avatar images
         const blurDivs = avatar.querySelectorAll('.blur-load')
