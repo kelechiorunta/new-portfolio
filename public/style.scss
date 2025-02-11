@@ -34,9 +34,9 @@ html{
 body{
     width: 100%;
     height: 100%;
-    min-height: 1000vh;
+    min-height: 100vh;
     max-width: 100vw;//calc((1728/1440) * 100vw);
-    max-height: calc((1717/1440) * 100vw);;
+    // max-height: calc((1717/1440) * 100vw);;
     background-color: $back-color;
     display: flex;
     flex-direction: column;
@@ -227,7 +227,7 @@ header{
             justify-content: space-around;
             gap:calc((10/1440) * 100vh);
             opacity: 0;
-            z-index: 20;
+            z-index: 30;
             transition: opacity 10s ease-in-out;
             animation: bounce 2s ease-in-out infinite;
             // margin-left:-50px;
@@ -519,7 +519,8 @@ header{
     .projects{
         padding-top: calc((72/1440) * 100vw);
         padding-bottom: calc((72/1440) * 100vw);
-        margin-top: calc((306/1440) * 100vw);
+        //was 206 not 106 before
+        margin-top: calc((106/1440) * 100vw);
         // height: 100vh;
         background-size: cover;
         background-attachment: fixed;
@@ -585,7 +586,7 @@ header{
       
       .projects, .news {
         position: absolute;
-        top: -75%;
+        top: -30%;
         // left: 100%; /* Start off the screen to the right */
         left: var(--left);
         width: 100%;
@@ -989,6 +990,81 @@ form{
 }
 
 
+// TECH CAROUSEL
+.partners_images_container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    margin-top: calc((100/1440) * 100vw);
+    width: 100%;
+    height: calc((150/1440) * 100vw);
+    background-color:white //#000;
+  }
+  .partners_images_container nav {
+    display: flex;
+    align-items: center;
+    flex-basis: 100%;
+    height: calc((150/1440) * 100vw);;
+    flex-shrink: 0;
+    justify-content: space-evenly;
+    gap: 2rem;
+    background-color: white;
+    // margin:auto 2rem;
+    animation: slide 4s linear infinite;
+  }
+  .partners_images_container nav img {
+    display: inline-block;
+    width: calc((150/1440) * 100vw);
+    height: calc((50/1440) * 100vw);
+    flex-basis: 1;
+    flex-shrink: 0;
+  }
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  .partners_images_container .partners_images_1 {
+    animation-delay: 0s;
+  }
+  .partners_images_container .partners_images_2 {
+    animation-delay: 0s;
+  }
+  ///
+
+// FOOTER IMPLEMENTATION
+
+    footer{
+        height:calc((54/1440) * 100vw);
+        width: 100%;
+        background-color: $back-color;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: calc((128/1440) * 100vw) auto;
+        p{
+            font-size: calc((16/1440) * 100vw);
+            line-height: calc((18/1440) * 100vw);
+            margin: auto calc((40/1440) * 100vw);
+            color: white;
+            width: max-content;
+        }
+        .github_link{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2EA787;
+            border-radius: 50%;
+            border: 1px solid white;
+            img{
+                width:calc((30/1440) * 100vw);
+                height:calc((30/1440) * 100vw);
+            }
+        }
+    }
     /*
     TOASTER IMPLEMENTATION
     */
@@ -1077,3 +1153,4 @@ form{
         animation: spin 2s ease-in-out infinite;
     }
 }
+
