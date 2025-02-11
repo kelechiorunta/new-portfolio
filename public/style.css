@@ -837,7 +837,7 @@ header .toggle-container .toggle.active {
   }
 }
 
-.partners_images_container {
+.stack_images_container {
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
@@ -847,7 +847,7 @@ header .toggle-container .toggle.active {
   background-color: white;
 }
 
-.partners_images_container nav {
+.stack_images_container nav {
   display: flex;
   align-items: center;
   flex-basis: 100%;
@@ -859,7 +859,7 @@ header .toggle-container .toggle.active {
   animation: slide 4s linear infinite;
 }
 
-.partners_images_container nav img {
+.stack_images_container nav img {
   display: inline-block;
   width: 10.4166666667vw;
   height: 3.4722222222vw;
