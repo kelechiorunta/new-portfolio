@@ -1,6 +1,8 @@
 import { animateText } from "./apis/typer.js"
 import { animateAvatarimages, animateSections } from "./apis/animate.js";
 import { sendMessage } from "./apis/sendMessage.js";
+// import "./style.scss";  // Webpack will process this
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const landingTitle = document.querySelector('.home-section .title');
