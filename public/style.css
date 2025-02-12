@@ -1280,6 +1280,18 @@ TOASTER IMPLEMENTATION
     width: 100%;
     font-size: 6.4vw;
     margin: 6.4vw auto;
+    padding: 2.1333333333vw;
+  }
+  .contact-section form .sendBtn .spinner_container {
+    height: 100%;
+    width: 100%;
+  }
+  .contact-section form .sendBtn .spinner_container .spinner {
+    width: 18.6666666667vw;
+    height: 18.6666666667vw;
+  }
+  #snackbar {
+    font-size: 5.3333333333vw;
   }
   footer {
     height: 14.4vw;
@@ -1640,6 +1652,15 @@ TOASTER IMPLEMENTATION
     width: max-content;
     font-size: 24px;
     margin: 24px auto;
+    padding: 2.1333333333vw;
+  }
+  .contact-section form .sendBtn .spinner_container {
+    height: 100%;
+    width: 100%;
+  }
+  .contact-section form .sendBtn .spinner_container .spinner {
+    width: 18.6666666667vw;
+    height: 18.6666666667vw;
   }
   footer {
     height: 54px;

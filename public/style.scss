@@ -1491,11 +1491,24 @@ form{
                 width: 100%;
                 font-size: calc((24/375) * 100vw);
                 margin: calc((24/375) * 100vw) auto;
-                
+                padding: calc((8/375) * 100vw);
+                .spinner_container{
+                    height: 100%;//calc((50/375) * 100vw);
+                    width: 100%;//calc((50/375) * 100vw);
+                    .spinner{
+                        width: calc((70/375) * 100vw);
+                        height: calc((70/375) * 100vw);
+                }
+            }
             }
         }
         min-height: 100vh;
     }
+
+    #snackbar{
+        font-size: ((20/375) * 100vw)
+    }
+    
 
     footer{
         height:calc((54/375) * 100vw);
@@ -1929,7 +1942,15 @@ form{
                     width: max-content;
                     font-size: 24px;//calc((24/375) * 100vw);
                     margin: 24px auto;//calc((24/375) * 100vw) auto;
-                    
+                    padding: calc((8/375) * 100vw);
+                    .spinner_container{
+                        height: 100%;//calc((50/375) * 100vw);
+                        width: 100%;//calc((50/375) * 100vw);
+                        .spinner{
+                            width: calc((70/375) * 100vw);
+                            height: calc((70/375) * 100vw);
+                    }
+                }
                 }
             }
             min-height: max-content;
