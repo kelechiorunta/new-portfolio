@@ -18,7 +18,7 @@ body {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  max-width: 100vw;
+  max-width: 100%;
   background-color: #292F36;
   display: flex;
   flex-direction: column;
@@ -58,6 +58,9 @@ header .logo img {
 header .logo h1 {
   color: white;
   font-size: 1.67vw;
+}
+header .hamburger-icon {
+  display: none;
 }
 header .primary-nav {
   display: flex;
@@ -114,7 +117,7 @@ header .toggle-container .toggle.active {
 .home-section .title {
   margin-top: 22.5714285714vw;
   font-size: 4.4444444444vw;
-  width: 100vw;
+  width: 100%;
 }
 .home-section .title span.animate {
   animation: changeColor 2s ease-in-out 2s;
@@ -296,14 +299,11 @@ header .toggle-container .toggle.active {
   position: absolute;
   width: 100%;
   background-attachment: fixed;
-  -webkit-clip-path: url(#visual);
-          clip-path: url(#visual); /* Apply the wave shape here */
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: -1;
-  border-radius: 50%;
 }
 .avatar .curved-section[data-direction=next] .blur-load.active {
   animation: slideInFromRight 4s ease;
@@ -324,6 +324,7 @@ header .toggle-container .toggle.active {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  z-index: 2;
   position: absolute;
   top: 0;
   left: var(--left);
@@ -991,4 +992,662 @@ TOASTER IMPLEMENTATION
   width: 50px;
   height: 50px;
   animation: spin 2s ease-in-out infinite;
+}
+
+@media only screen and (max-width: 400px) {
+  header {
+    background-color: #2EA787;
+    width: 100%;
+    max-width: 84.5333333333vw;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    z-index: 50;
+    position: fixed;
+    border-radius: 5.3333333333vw;
+    left: 8vw;
+    margin-top: 0vw;
+    padding: auto 8vw !important;
+  }
+  header .logo h1 {
+    display: none;
+    font-size: 5.3333333333vw;
+  }
+  header .primary-nav, header .toggle-container {
+    display: none;
+  }
+  header .hamburger-icon {
+    cursor: pointer;
+    display: flex;
+    z-index: 1;
+    /* The Overlay (background) */
+    /* Position the content inside the overlay */
+    /* The navigation links inside the overlay */
+    /* When you mouse over the navigation links, change their color */
+    /* Position the close button (top right corner) */
+    /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+  }
+  header .hamburger-icon img {
+    width: 10.6666666667vw;
+    height: 10.6666666667vw;
+  }
+  header .hamburger-icon .overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 100%;
+    width: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 50; /* Sit on top */
+    left: -100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/opacity */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  }
+  header .hamburger-icon .overlay-content {
+    position: relative;
+    font-size: 6.4vw;
+    top: 25%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  }
+  header .hamburger-icon .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+  }
+  header .hamburger-icon .overlay a:hover, header .hamburger-icon .overlay a:focus {
+    color: #f1f1f1;
+  }
+  header .hamburger-icon .overlay .closebtn {
+    border-radius: 50%;
+    padding: 10px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 70px;
+    right: 25px;
+    font-size: 60px;
+    cursor: pointer;
+  }
+}
+@media only screen and (max-width: 400px) and (max-height: 450px) {
+  header .hamburger-icon .overlay a {
+    font-size: 20px;
+  }
+  header .hamburger-icon .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .home-section {
+    padding: 8vw;
+    min-height: 100%;
+  }
+  .home-section .floating-nav {
+    display: none;
+  }
+  .home-section .title {
+    text-align: center;
+    height: 41.0666666667vw;
+    margin-top: 56.5333333333vw;
+    margin-left: 0vw;
+    font-size: 9.6vw;
+    margin-bottom: 6.4vw;
+  }
+  .home-section .cont {
+    flex-direction: column;
+    margin-left: 0vw;
+    align-items: start;
+    gap: 6.4vw;
+  }
+  .home-section .cont .description {
+    text-align: center;
+    width: 100%;
+    margin-left: 0vw;
+    font-size: 5.3333333333vw;
+  }
+  .home-section .cont .download {
+    margin: auto;
+    padding: 2.4vw 8.5333333333vw;
+    margin-bottom: 3.2vw;
+  }
+  .whitespace-section {
+    margin-top: 54.9333333333vw;
+    height: 80vh;
+    background-color: black;
+  }
+  .skills-section {
+    min-height: 100%;
+    padding: 8vw;
+    min-height: 100%;
+  }
+  .skills-section .title {
+    font-size: 8.5333333333vw;
+    margin-bottom: 6.4vw;
+  }
+  .skills-section .quote {
+    font-size: 4.2666666667vw;
+    margin-bottom: 6.4vw;
+  }
+  .skills-section .card-skill-title {
+    width: 84vw;
+    margin-bottom: 6.4vw;
+    height: -moz-max-content;
+    height: max-content;
+  }
+  .skills-section .tech-stacks-container {
+    flex-wrap: wrap;
+    gap: 6.4vw;
+  }
+  .stack_images_container {
+    height: 13.3333333333vw;
+    padding: 2.1333333333vw auto;
+  }
+  .stack_images_container nav {
+    height: 13.3333333333vw;
+    gap: 2.1333333333vw;
+  }
+  .stack_images_container nav img {
+    padding: 2.1333333333vw auto;
+    width: 26.6666666667vw;
+    height: 5.3333333333vw;
+  }
+  .projects .title {
+    font-size: 8.5333333333vw;
+    margin-bottom: 6.4vw;
+  }
+  .projects .quote {
+    width: 80%;
+    font-size: 4.2666666667vw;
+    margin-bottom: 12.8vw;
+  }
+  .projects .view-website {
+    font-size: 4.2666666667vw;
+    margin-bottom: 6.4vw;
+  }
+  .projects .carousel-container {
+    margin-top: 6.4vw;
+    width: 84vw;
+    height: 84vw;
+  }
+  .projects .carousel-container .news {
+    top: -20%;
+  }
+  .projects .carousel-btn {
+    width: 12.8vw;
+    height: 12.8vw;
+    padding: 4.2666666667vw;
+  }
+  .comments {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: 6.4vw;
+  }
+  .comments h1 {
+    margin: 6.4vw auto;
+  }
+  .comments p {
+    width: 80%;
+    margin-top: 6.4vw;
+  }
+  .about-section .about-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-section .about-container .about-description-container {
+    height: 100%;
+  }
+  .about-section .about-container .about-description-container .aboutUsBtn {
+    width: 100%;
+    font-size: 8.5333333333vw;
+  }
+  .about-section .about-container .about-description-container .description {
+    overflow: scroll;
+    min-height: 94.6666666667vw;
+    width: 100%;
+    background-color: #292F36;
+    border-radius: 3.4722222222vw;
+    padding: 2.1333333333vw;
+  }
+  .about-section .about-container .about-description-container .description h1 {
+    font-size: 6.4vw;
+    line-height: 8.5333333333vw;
+    width: auto;
+    padding: 1.6842105263vw;
+  }
+  .about-section .about-container .about-description-container .description p {
+    font-size: 4.2666666667vw;
+    line-height: 6.4vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .about-section .about-container .about-image-container {
+    margin-top: 53.3333333333vw;
+    border-top: 2.6666666667vw solid white;
+    border-bottom: 2.6666666667vw solid white;
+    border-right: 2.6666666667vw solid #2EA787;
+    border-left: 2.6666666667vw solid #2EA787;
+    min-height: 47.7333333333vw;
+  }
+  .about-section .about-container .about-image-container .about-image {
+    margin: auto;
+    width: 90%;
+    height: 90%;
+    min-width: 42.4vw;
+    min-height: 42.4vw;
+    border-top: 2.6666666667vw solid #2EA787;
+    border-bottom: 2.6666666667vw solid #2EA787;
+    border-right: 2.6666666667vw solid white;
+    border-left: 2.6666666667vw solid white;
+    border-radius: 50%;
+  }
+  .contact-section {
+    min-height: 100vh;
+  }
+  .contact-section .contactBtn {
+    width: 100%;
+    font-size: 8.5333333333vw;
+    margin-bottom: 6.4vw;
+  }
+  .contact-section .messageBtn {
+    width: 70%;
+    font-size: 6.4vw;
+    margin-bottom: 6.4vw;
+  }
+  .contact-section .title {
+    width: 80%;
+    text-align: center;
+    font-size: 4.2666666667vw;
+    margin-bottom: 12.8vw;
+  }
+  .contact-section form {
+    flex-direction: column;
+  }
+  .contact-section form .input-container {
+    width: 100%;
+  }
+  .contact-section form .sendBtn {
+    width: 100%;
+    font-size: 6.4vw;
+    margin: 6.4vw auto;
+  }
+  footer {
+    height: 14.4vw;
+    width: 100%;
+    background-color: #292F36;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    gap: 3.2vw;
+    padding: 60.8vw auto;
+  }
+  footer p {
+    font-size: 3.2vw;
+    line-height: 4.8vw;
+    margin: auto 10.6666666667vw;
+    color: white;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  footer a {
+    text-decoration: none;
+    margin-left: 3.2vw;
+    color: #2EA787;
+  }
+  footer .github_link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 10.6666666667vw;
+    width: auto;
+    background-color: #2EA787;
+    border-radius: 50%;
+    border: 1px solid white;
+  }
+  footer .github_link img {
+    width: 8vw;
+    height: 6.9565217391vw;
+  }
+}
+@media only screen and (min-width: 401px) and (max-width: 1198px) {
+  header {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    z-index: 50;
+    border-radius: 5.3333333333vw;
+    left: 8vw;
+    margin-top: 0vw;
+    padding: auto calc(30px + 0.8368113523vw);
+  }
+  header .logo h1 {
+    display: none;
+    font-size: 5.3333333333vw;
+  }
+  header .primary-nav, header .toggle-container {
+    display: none;
+  }
+  header .hamburger-icon {
+    display: none;
+    cursor: pointer;
+    z-index: 1;
+    /* The Overlay (background) */
+    /* Position the content inside the overlay */
+    /* The navigation links inside the overlay */
+    /* When you mouse over the navigation links, change their color */
+    /* Position the close button (top right corner) */
+    /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+  }
+  header .hamburger-icon img {
+    width: 40px;
+    height: 40px;
+  }
+  header .hamburger-icon .overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 100%;
+    width: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 50; /* Sit on top */
+    left: -100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/opacity */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  }
+  header .hamburger-icon .overlay-content {
+    position: relative;
+    font-size: 24px;
+    top: 25%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  }
+  header .hamburger-icon .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+  }
+  header .hamburger-icon .overlay a:hover, header .hamburger-icon .overlay a:focus {
+    color: #f1f1f1;
+  }
+  header .hamburger-icon .overlay .closebtn {
+    border-radius: 50%;
+    padding: 10px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 70px;
+    right: 25px;
+    font-size: 60px;
+    cursor: pointer;
+  }
+}
+@media only screen and (min-width: 401px) and (max-width: 1198px) and (max-height: 450px) {
+  header .hamburger-icon .overlay a {
+    font-size: 20px;
+  }
+  header .hamburger-icon .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+@media only screen and (min-width: 401px) and (max-width: 1198px) {
+  .home-section {
+    padding: calc(30px + 1.840984975vw);
+    min-height: 100%;
+  }
+  .home-section .floating-nav {
+    display: none;
+  }
+  .home-section .title {
+    text-align: left;
+    height: calc(154px + 0.5020868114vw);
+    margin-top: calc(212px + 1.840984975vw);
+    margin-left: calc(30px + 1.840984975vw);
+    font-size: calc(36px + 1.840984975vw);
+    margin-bottom: calc(24px + 1.840984975vw);
+  }
+  .home-section .cont {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: calc(30px + 1.840984975vw);
+    align-items: start;
+    gap: calc(24px + 0.3347245409vw);
+  }
+  .home-section .cont .description {
+    text-align: left;
+    width: 70%;
+    margin-left: 0vw;
+    font-size: calc(20px + 0.5020868114vw);
+  }
+  .home-section .cont .download {
+    margin: auto;
+    padding: calc(9px + 0.8368113523vw) 32px;
+    margin-bottom: calc(12px + 1.840984975vw);
+  }
+  .whitespace-section {
+    margin-top: calc(206px + 1.840984975vw);
+    height: 80vh;
+    background-color: black;
+  }
+  .skills-section {
+    min-height: -moz-max-content;
+    min-height: max-content;
+    padding: calc(30px + 1.840984975vw);
+  }
+  .skills-section .title {
+    font-size: calc(32px + 0.8368113523vw);
+    margin-bottom: calc(24px + 1.840984975vw);
+  }
+  .skills-section .quote {
+    font-size: calc(16px + 0.8368113523vw);
+    margin-bottom: calc(24px + 1.840984975vw);
+  }
+  .skills-section .card-skill-title {
+    margin: auto;
+    font-size: calc(16px + 0.8368113523vw);
+    width: 80%;
+    margin-bottom: calc(24px + 1.840984975vw);
+    height: -moz-max-content;
+    height: max-content;
+  }
+  .skills-section .tech-stacks-container {
+    flex-wrap: wrap;
+    gap: calc(24px + 1.840984975vw);
+  }
+  .stack_images_container {
+    height: 13.3333333333vw;
+    padding: 2.1333333333vw auto;
+  }
+  .stack_images_container nav {
+    height: 13.3333333333vw;
+    gap: 2.1333333333vw;
+  }
+  .stack_images_container nav img {
+    padding: 2.1333333333vw auto;
+    width: 26.6666666667vw;
+    height: 5.3333333333vw;
+  }
+  .projects .title {
+    font-size: calc(32px + 0.8368113523vw);
+    margin-bottom: calc(24px + 1.840984975vw);
+  }
+  .projects .quote {
+    width: 80%;
+    font-size: calc(16px + 0.8368113523vw);
+    margin-bottom: calc(48px + 1.840984975vw);
+  }
+  .projects .view-website {
+    font-size: calc(16px + 0.8368113523vw);
+    margin-bottom: calc(24px + 1.840984975vw);
+  }
+  .projects .carousel-container {
+    margin-top: calc(24px + 1.840984975vw);
+    width: calc(315px + 8.3681135225vw);
+    height: calc(315px + 8.3681135225vw);
+  }
+  .projects .carousel-container .news {
+    top: -30%;
+  }
+  .projects .carousel-btn {
+    width: 48px;
+    height: 48px;
+    padding: 16px;
+  }
+  .comments {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: calc(24px + 0.8368113523vw);
+  }
+  .comments h1 {
+    margin: calc(24px + 1.840984975vw) auto;
+  }
+  .comments p {
+    width: 80%;
+    margin-top: calc(24px + 1.840984975vw);
+  }
+  .about-section .about-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: calc(4px + 1.840984975vw);
+  }
+  .about-section .about-container .about-description-container {
+    max-width: 70%;
+    min-width: 315px;
+    min-height: 470px;
+  }
+  .about-section .about-container .about-description-container .aboutUsBtn {
+    width: 100%;
+    font-size: calc(32px + 0.8368113523vw);
+  }
+  .about-section .about-container .about-description-container .description {
+    overflow: scroll;
+    min-height: calc(336px + 0.8368113523vw);
+    width: 100%;
+    background-color: #292F36;
+    border-radius: 3.4722222222vw;
+    padding: 2.1333333333vw;
+  }
+  .about-section .about-container .about-description-container .description h1 {
+    font-size: calc(24px + 0.8368113523vw);
+    line-height: calc(32px + 0.8368113523vw);
+    width: auto;
+    padding: 2.1333333333vw auto;
+  }
+  .about-section .about-container .about-description-container .description p {
+    font-size: calc(16px + 0.5020868114vw);
+    line-height: calc(24px + 0.5020868114vw);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .about-section .about-container .about-image-container {
+    margin: auto;
+    border-top: calc(10px + 0.5020868114vw) solid white;
+    border-bottom: calc(10px + 0.5020868114vw) solid white;
+    border-right: calc(10px + 0.5020868114vw) solid #2EA787;
+    border-left: calc(10px + 0.5020868114vw) solid #2EA787;
+    height: 139;
+  }
+  .about-section .about-container .about-image-container .about-image {
+    width: calc(119px + 0.5020868114vw);
+    height: calc(119px + 0.5020868114vw);
+    border-top: calc(10px + 0.5020868114vw) solid #2EA787;
+    border-bottom: calc(10px + 0.5020868114vw) solid #2EA787;
+    border-right: calc(10px + 0.5020868114vw) solid white;
+    border-left: calc(10px + 0.5020868114vw) solid white;
+    border-radius: 50%;
+  }
+  .contact-section {
+    min-height: -moz-max-content;
+    min-height: max-content;
+  }
+  .contact-section .contactBtn {
+    width: 100%;
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+  .contact-section .messageBtn {
+    width: 70%;
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  .contact-section .title {
+    width: 80%;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 48px;
+  }
+  .contact-section form {
+    flex-direction: column;
+  }
+  .contact-section form .input-container {
+    width: 100%;
+  }
+  .contact-section form .sendBtn {
+    width: -moz-max-content;
+    width: max-content;
+    font-size: 24px;
+    margin: 24px auto;
+  }
+  footer {
+    height: 54px;
+    width: 100%;
+    background-color: #292F36;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    gap: 12px;
+    padding: 228px auto;
+  }
+  footer p {
+    font-size: 12px;
+    line-height: 18px;
+    margin: auto 40px;
+    color: white;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  footer a {
+    text-decoration: none;
+    margin-left: 12px;
+    color: #2EA787;
+  }
+  footer .github_link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 40px;
+    width: auto;
+    background-color: #2EA787;
+    border-radius: 50%;
+    border: 1px solid white;
+  }
+  footer .github_link img {
+    width: 30px;
+    height: 40px;
+  }
 }/*# sourceMappingURL=style.css.map */
