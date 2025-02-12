@@ -126,6 +126,29 @@ header{
         }
     }
 
+    .home-section.backgroundAnimate{
+        animation: animateImg 1s ease-in-out forwards;
+    }
+
+    @keyframes animateImg {
+        0%{
+            background-image: url('/backgroundPic');
+            background-color: rgba(255, 255, 255, 0);
+            opacity: 1;   
+        }
+        // 50%{
+        //     background-color: rgba(255, 255, 255, 0.5);
+        //     background-image: url('/backgroundPic');
+        //     opacity: 0.75;
+        // }
+        100% {
+            background-color: rgba(255, 255, 255, 0);
+            background-image: url('./imgs/developer_background.png');
+            opacity: 1;
+        }
+        
+    }
+
     //Home section styling
 
     .home-section{
@@ -1496,8 +1519,8 @@ form{
                     height: 100%;//calc((50/375) * 100vw);
                     width: 100%;//calc((50/375) * 100vw);
                     .spinner{
-                        width: calc((70/375) * 100vw);
-                        height: calc((70/375) * 100vw);
+                        width: calc((50/375) * 100vw);
+                        height: calc((50/375) * 100vw);
                 }
             }
             }
