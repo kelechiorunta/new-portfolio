@@ -16,6 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const para2 = parasection.querySelector('.description .para2');
     const para3 = parasection.querySelector('.description .para3');
 
+    const hamburgerBtn = mainHeader.querySelector('.hamburger-icon');
+    const hamburgerNav = hamburgerBtn.querySelector(".overlay");
+    const closehamburgerBtn = hamburgerNav.querySelector('.closebtn');
+    console.log(closehamburgerBtn)
+
     let istoggled = false;
     // ToggleBtn Animations
     toggleBtn.addEventListener('click', function(){
@@ -30,6 +35,29 @@ document.addEventListener('DOMContentLoaded', () => {
             istoggled = false
         }
         
+    })
+
+    /* Open when someone clicks on the span element */
+    function openNav() {
+        hamburgerNav.style.left = "0%";
+    }
+    
+    /* Close when someone clicks on the "x" symbol inside the overlay */
+    function closeNav() {
+        const hamburgerBtn = mainHeader.querySelector('.hamburger-icon');
+        const hamburgerNav = hamburgerBtn.querySelector(".overlay");
+        hamburgerNav.style.left = "-100%";
+    }
+
+    //Event delegation to the child closebtn
+    hamburgerBtn.addEventListener('click', (event) => {
+        if (event.target.classList.contains('closebtn')){
+            closeNav();
+        }else if (event.target.tagName === "A"){
+            closeNav();
+        }else{
+            openNav();
+        }
     })
 
     // Animate the landing-section contents with a delay of 5 secs
@@ -95,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         avatar.style.opacity = 0;
                         mainHeader.style.opacity = 0;
                         mainHeader.style.top = '-100%';
-                        mainHeader.style.backgroundColor = 'transparent';
+                        // mainHeader.style.backgroundColor = 'transparent';
                 }else{
                         avatar.style.opacity = 1;
                         mainHeader.style.opacity = '1';
