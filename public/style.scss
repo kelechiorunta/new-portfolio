@@ -1540,7 +1540,48 @@ form{
 
 
 ////////////////////////////////////////////
+/// 
+/// 
 //Tabloid arrangements
+
+@media only screen and (min-width: 401px) and (max-width:786px){
+    header{
+        width: 100%;
+        // max-width:  calc((317/375) * 100vw);
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        z-index:50;
+        border-radius: calc((20/375) * 100vw);
+        left: calc((30/375) * 100vw);
+        margin-top:  calc((0/375) * 100vw);
+        padding: auto calc(30px + calc((401/1198) * 2.5vw));
+        .primary-nav, .toggle-container{
+            // display: flex;
+            display: none;//block;
+        }
+        .hamburger-icon{
+            // display: ;
+            cursor: pointer;
+            display: flex;
+            z-index: 1;
+        }
+    }
+}
+
+@media only screen and (min-width: 786px) and (max-width:1189px){
+    header{
+        .primary-nav, .toggle-container{
+            display: flex;
+            // display: block;
+        }
+        .hamburger-icon{
+            cursor: pointer;
+            display: none;
+            z-index: 1;
+        }
+    }
+}
 
 @media only screen and (min-width: 401px) and (max-width: 1198px) {
     
@@ -1564,12 +1605,8 @@ form{
             }
         }
         
-        .primary-nav, .toggle-container{
-            // display: flex;
-            display: none;
-        }
         .hamburger-icon{
-            display: none;
+            // display: flex;
             cursor: pointer;
             // display: flex;
             z-index: 1;
@@ -1646,6 +1683,11 @@ form{
                 
         }
        }
+
+       .avatar{
+           top: 20%;     
+       }
+
         .home-section{
             padding: calc(30px + calc((401/1198) * 5.5vw));
             min-height: 100%;
@@ -1668,9 +1710,9 @@ form{
                 flex-direction: row;
                 flex-wrap: wrap;
                 margin-left: calc(30px + calc((401/1198) * 5.5vw));
-                align-items: start;
-                // justify-content: space-evenly;
-                gap: calc(24px + calc((401/1198) * 1vw));
+                align-items: center;
+                // justify-content: space-around;
+                // gap: calc(24px + calc((401/1198) * 1vw));
                 .description{
                     text-align: left;
                     width: 70%;//max-content;//100%;
@@ -1679,6 +1721,7 @@ form{
                 }
                 .download{
                     margin: auto;
+                    margin-top: calc(24px + calc((401/1198) * 5.5vw));
                     padding: calc(9px + calc((401/1198) * 2.5vw)) 32px;//calc(32px + calc((401/1198) * 5.5vw));;
                     margin-bottom: calc(12px + calc((401/1198) * 5.5vw));
                 }
