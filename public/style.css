@@ -1,4 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Jersey+15&family=Jost:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+/*!*********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/style.scss ***!
+  \*********************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Jersey+15&family=Jost:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap);
+/*!*************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/style.scss (1) ***!
+  \*************************************************************************************************************/
 :root {
   --left: 0%;
 }
@@ -31,7 +37,6 @@ header {
   padding: 0.6944444444vh;
   margin: auto;
   width: 100%;
-  height: -moz-max-content;
   height: max-content;
   max-width: calc(100% - 120px);
   display: flex;
@@ -103,13 +108,13 @@ header .toggle-container .toggle.active {
 
 @keyframes animateImg {
   0% {
-    background-image: url("/backgroundPic");
+    background-image: url(imgs/developer.png);
     background-color: rgba(255, 255, 255, 0);
     opacity: 1;
   }
   100% {
     background-color: rgba(255, 255, 255, 0);
-    background-image: url("./imgs/developer_background.png");
+    background-image: url(imgs/developer_background.png);
     opacity: 1;
   }
 }
@@ -118,7 +123,7 @@ header .toggle-container .toggle.active {
   top: 0;
   left: 0;
   background-attachment: fixed;
-  background-image: url("./imgs/developer.png");
+  background-image: url(imgs/developer.png);
   background-position: center;
   background-size: cover;
   width: 100%;
@@ -259,10 +264,8 @@ header .toggle-container .toggle.active {
 .avatar .blur-load img {
   width: 100%;
   aspect-ratio: 1/1;
-  -o-object-position: center;
-     object-position: center;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-position: center;
+  object-fit: cover;
 }
 .avatar .blur-load.loaded > img {
   opacity: 1;
@@ -336,10 +339,8 @@ header .toggle-container .toggle.active {
 .avatar .curved-section .blur-load {
   width: 100%;
   height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: cover;
+  object-position: center;
   z-index: 2;
   position: absolute;
   top: 0;
@@ -361,7 +362,7 @@ header .toggle-container .toggle.active {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  background-image: url("./imgs/matrix.png");
+  background-image: url(imgs/matrix.png);
 }
 .skills-section .title {
   font-size: 2.7777777778vw;
@@ -607,7 +608,7 @@ header .toggle-container .toggle.active {
 .about-section {
   margin-top: 21.25vw;
   min-height: 100vh;
-  background-image: url("./imgs/About.png");
+  background-image: url(imgs/About.png);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -691,7 +692,7 @@ header .toggle-container .toggle.active {
   height: 90%;
   min-width: 17.5vw;
   min-height: 17.2916666667vw;
-  background-image: url("./imgs/Me.jpg");
+  background-image: url(imgs/Me.jpg);
   filter: brightness(100%);
   background-position: center;
   background-size: cover;
@@ -914,7 +915,6 @@ footer p {
   line-height: 1.25vw;
   margin: auto 2.7777777778vw;
   color: white;
-  width: -moz-max-content;
   width: max-content;
 }
 footer .github_link {
@@ -960,10 +960,21 @@ TOASTER IMPLEMENTATION
   visibility: visible; /* Show the snackbar */
   /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
   However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
 /* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
 @keyframes fadein {
   from {
     bottom: 0;
@@ -972,6 +983,16 @@ TOASTER IMPLEMENTATION
   to {
     bottom: 30px;
     opacity: 1;
+  }
+}
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
   }
 }
 @keyframes fadeout {
@@ -1156,7 +1177,6 @@ TOASTER IMPLEMENTATION
   .skills-section .card-skill-title {
     width: 84vw;
     margin-bottom: 6.4vw;
-    height: -moz-max-content;
     height: max-content;
   }
   .skills-section .tech-stacks-container {
@@ -1325,7 +1345,6 @@ TOASTER IMPLEMENTATION
     line-height: 4.8vw;
     margin: auto 10.6666666667vw;
     color: white;
-    width: -moz-max-content;
     width: max-content;
   }
   footer a {
@@ -1508,7 +1527,6 @@ TOASTER IMPLEMENTATION
     background-color: black;
   }
   .skills-section {
-    min-height: -moz-max-content;
     min-height: max-content;
     padding: calc(30px + 1.840984975vw);
   }
@@ -1525,7 +1543,6 @@ TOASTER IMPLEMENTATION
     font-size: calc(16px + 0.8368113523vw);
     width: 80%;
     margin-bottom: calc(24px + 1.840984975vw);
-    height: -moz-max-content;
     height: max-content;
   }
   .skills-section .tech-stacks-container {
@@ -1638,7 +1655,6 @@ TOASTER IMPLEMENTATION
     border-radius: 50%;
   }
   .contact-section {
-    min-height: -moz-max-content;
     min-height: max-content;
   }
   .contact-section .contactBtn {
@@ -1664,7 +1680,6 @@ TOASTER IMPLEMENTATION
     width: 100%;
   }
   .contact-section form .sendBtn {
-    width: -moz-max-content;
     width: max-content;
     font-size: 24px;
     margin: 24px auto;
@@ -1695,7 +1710,6 @@ TOASTER IMPLEMENTATION
     line-height: 18px;
     margin: auto 40px;
     color: white;
-    width: -moz-max-content;
     width: max-content;
   }
   footer a {
@@ -1717,4 +1731,4 @@ TOASTER IMPLEMENTATION
     width: 30px;
     height: 40px;
   }
-}/*# sourceMappingURL=style.css.map */
+}
