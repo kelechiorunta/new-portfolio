@@ -1303,8 +1303,8 @@ TOASTER IMPLEMENTATION
     width: 100%;
   }
   .contact-section form .sendBtn .spinner_container .spinner {
-    width: 13.3333333333vw;
-    height: 13.3333333333vw;
+    width: 8vw;
+    height: 8vw;
   }
   #snackbar {
     font-size: 5.3333333333vw;
@@ -1675,8 +1675,8 @@ TOASTER IMPLEMENTATION
     width: 100%;
   }
   .contact-section form .sendBtn .spinner_container .spinner {
-    width: 18.6666666667vw;
-    height: 18.6666666667vw;
+    width: 8vw;
+    height: 8vw;
   }
   footer {
     height: 54px;
