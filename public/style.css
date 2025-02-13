@@ -97,6 +97,22 @@ header .toggle-container .toggle.active {
   margin-left: calc(100% - 38px);
 }
 
+.home-section.backgroundAnimate {
+  animation: animateImg 1s ease-in-out forwards;
+}
+
+@keyframes animateImg {
+  0% {
+    background-image: url("/backgroundPic");
+    background-color: rgba(255, 255, 255, 0);
+    opacity: 1;
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url("./imgs/developer_background.png");
+    opacity: 1;
+  }
+}
 .home-section {
   position: absolute;
   top: 0;
@@ -1287,8 +1303,8 @@ TOASTER IMPLEMENTATION
     width: 100%;
   }
   .contact-section form .sendBtn .spinner_container .spinner {
-    width: 18.6666666667vw;
-    height: 18.6666666667vw;
+    width: 8vw;
+    height: 8vw;
   }
   #snackbar {
     font-size: 5.3333333333vw;
@@ -1659,8 +1675,8 @@ TOASTER IMPLEMENTATION
     width: 100%;
   }
   .contact-section form .sendBtn .spinner_container .spinner {
-    width: 18.6666666667vw;
-    height: 18.6666666667vw;
+    width: 8vw;
+    height: 8vw;
   }
   footer {
     height: 54px;

@@ -1,6 +1,8 @@
 import { animateText } from "./apis/typer.js"
 import { animateAvatarimages, animateSections } from "./apis/animate.js";
 import { sendMessage } from "./apis/sendMessage.js";
+import { createToaster } from "./apis/toaster.js";
+
 // import "./style.scss";  // Webpack will process this
 
 
@@ -11,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainHeader = document.querySelector('.main-header');
     const toggleBtn = mainHeader.querySelector('.toggle-container');
     const homeSection = document.querySelector('.home-section');
+    const downloadCVBtn = homeSection.querySelector('.cont .download')
 
     const aboutSection = document.querySelector('.about-section');
     const parasection = aboutSection.querySelector('.about-container .about-description-container');
@@ -23,17 +26,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const closehamburgerBtn = hamburgerNav.querySelector('.closebtn');
     console.log(closehamburgerBtn)
 
+    // downloadCVBtn.addEventListener('click', async() => {
+    //     try{
+    //         const response = await fetch('/downloadResult', {
+    //             credentials: 'same-origin',
+    //             method:'GET',
+    //             headers: {
+    //                 'Content-Type' : 'application/json'
+    //             }
+    //         }
+    //         )
+    //         const result = await response.json();
+    //         createToaster(result?.message, 'success');
+    //     }
+    //     catch(err){
+    //         createToaster(err, 'failure');
+    //     }
+    // })
+
     let istoggled = false;
+    let timeOut;
     // ToggleBtn Animations
     toggleBtn.addEventListener('click', function(){
         const toggle = this.querySelector('.toggle');
         toggle.classList.toggle('active');
         if (!istoggled) {
-            homeSection.style.backgroundImage = 'url(./imgs/developer_background.png)';
+            homeSection.classList.add('backgroundAnimate'); //= 'url(/backgroundPic)';
+            // homeSection.style.backgroundImage = 'url(/backgroundPic)';
+            // timeOut = setTimeout(()=>{homeSection.style.backgroundImage = 'url(./imgs/developer_background.png)'},2000)//'url(./imgs/developer_background.png)';
             // homeSection.style.filter = 'brightness(0.7)';
             istoggled = true
         } else {
-            homeSection.style.backgroundImage = 'url(./imgs/developer.png)';
+            // clearTimeout(timeOut);
+            homeSection.classList.remove('backgroundAnimate');
+            homeSection.style.backgroundImage = 'url(/imgs/developer.png)'//'url(./imgs/developer.png)';
             istoggled = false
         }
         
@@ -65,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Animate the landing-section contents with a delay of 5 secs
     animateText("Hi, I'm Kelechi", landingTitle, 100, 2000)
         .then(() => animateText("Full-Stack Developer", landingTitle, 100, 2000))
-        .then(() => toggleBtn.click())
+        // .then(() => toggleBtn.click())
         .then(() => animateText("Fun Programmer", landingTitle, 100, 2000))
         .then(() => animateText("Fun Learner", landingTitle, 100, 2000))
         .then(() => {
@@ -74,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             avatar.style.opacity='1'
             floatingNav.style.opacity='1'
             landingTitle.classList.add('animate');
-            toggleBtn.click();
+            // toggleBtn.click();
         });
 
     // animateText("Hi, my name is Kelechi, and I specialize in web development that utilizes  HTML, CSS and Javascript.", para1, 100, 2000)

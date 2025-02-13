@@ -26,7 +26,7 @@ const sendMessage = async(event) => {
         try{
             const response = await fetch('/send-email', {
                 method: 'POST',
-                credentials: 'include',
+                credentials: 'same-origin',
                 headers: {
                     'Content-Type' : 'application/json',
                     
