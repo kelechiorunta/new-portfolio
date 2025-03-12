@@ -86,7 +86,7 @@ server.get('/downloadResult', (req, res) => {
 
 
 server.get('/backgroundPic', async(req, res) => {
-    const backgroundImage = path.resolve(__dirname, 'public', 'imgs', 'developer_background.png')
+    const backgroundImage = path.resolve(__dirname, 'public', 'imgs', 'developer.png')
     const bufferedImg = await sharp(backgroundImage).resize(20).toBuffer();
     const readable = new Readable();
     // const readableStream = createReadStream(backgroundImage)
